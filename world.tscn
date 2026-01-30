@@ -2,17 +2,42 @@
 
 [ext_resource type="PackedScene" uid="uid://dtaspexunm5ym" path="res://player.tscn" id="1_f3sb7"]
 [ext_resource type="Texture2D" uid="uid://4y40e1ouxtbf" path="res://icon.svg" id="1_fj7yv"]
+[ext_resource type="Shader" uid="uid://bo62w0luigb8u" path="res://sky.gdshader" id="1_tlwt5"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_f3sb7"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+[sub_resource type="Curve" id="Curve_aqk2v"]
+_data = [Vector2(0.0314171, 0), 0.0, 0.0, 0, 0, Vector2(0.24532086, 0), 0.0, 0.0, 0, 0, Vector2(0.59291446, 0.98322153), 0.0, 0.0, 0, 0]
+point_count = 3
 
-[sub_resource type="Sky" id="Sky_fj7yv"]
-sky_material = SubResource("ProceduralSkyMaterial_f3sb7")
+[sub_resource type="CurveTexture" id="CurveTexture_036b0"]
+curve = SubResource("Curve_aqk2v")
+
+[sub_resource type="Gradient" id="Gradient_dwbse"]
+offsets = PackedFloat32Array(0, 0.85308444, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.91964287, 0.91964287, 0.91964287, 1, 0, 0, 0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_pkg7o"]
+frequency = 0.186
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_gbfbk"]
+noise = SubResource("FastNoiseLite_pkg7o")
+color_ramp = SubResource("Gradient_dwbse")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ioo17"]
+shader = ExtResource("1_tlwt5")
+shader_parameter/top_color = Color(0.7408409, 0, 0.32698306, 1)
+shader_parameter/bottom_color = Color(0.48224872, 0.21675035, 2.4065375e-07, 1)
+shader_parameter/gradient_curve = SubResource("CurveTexture_036b0")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_gbfbk")
+
+[sub_resource type="Sky" id="Sky_wse8f"]
+sky_material = SubResource("ShaderMaterial_ioo17")
 
 [sub_resource type="Environment" id="Environment_tlwt5"]
 background_mode = 2
-sky = SubResource("Sky_fj7yv")
+sky = SubResource("Sky_wse8f")
+ambient_light_color = Color(0.78039217, 0.15686275, 0.30980393, 1)
+ambient_light_sky_contribution = 0.16
 tonemap_mode = 2
 glow_enabled = true
 

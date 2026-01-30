@@ -40,7 +40,7 @@ var is_sliding = false
 var maxjumpamount := 2
 @onready var jumpsleft:=maxjumpamount
 
-
+var horizontal_velocity = velocity
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
@@ -139,9 +139,11 @@ func _physics_process(delta):
 	
 	handle_input()
 	
-	if Input.is_action_just_pressed("slide") and slide_cooldown.is_stopped():
+	if Input.is_action_just_pressed("slide") and slide_cooldown.is_stopped() and wish_dir:
 		slide_timer.start()
-	
+		slide_cooldown.start()
+		$AnimationPlayer.play("slide")
+
 	if is_on_wall() and get_h_velocity():
 		friction(WALL_FRICTION,velocity.length(),delta,false)
 	if is_on_floor():
@@ -163,7 +165,7 @@ func _physics_process(delta):
 		print(jumpsleft)
 	
 	
-	var horizontal_velocity = velocity
+	horizontal_velocity = velocity
 	horizontal_velocity.y = 0
 	if horizontal_velocity.length() > MAX_SPEED:
 		horizontal_velocity = horizontal_velocity.limit_length(MAX_SPEED)
