@@ -1,0 +1,19 @@
+class_name Gun
+extends Node3D
+
+@export var gun_name: String = "Base Gun"
+@export var fire_rate: float = 0.5
+@export var damage: int = 10
+@export var raycast: RayCast3D
+
+var can_shoot: bool = true
+
+# This simulates an abstract method
+func shoot():
+	push_error("Method 'shoot' must be overridden in child class: %s" % name)
+
+# This simulates an abstract method
+func interact():
+	push_error("Method 'interact' must be overridden in child class: %s" % name)
+
+# Common helper function for cooldowns

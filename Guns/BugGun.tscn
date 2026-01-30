@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cd5iljw3mpsge"]
+
+[ext_resource type="Script" uid="uid://dyha8nfekqcpc" path="res://Scripts/Bug.gd" id="1_gjvqm"]
+[ext_resource type="Texture2D" uid="uid://dtnbn4q8fvu0u" path="res://Textures/bug.png" id="2_5iei8"]
+
+[node name="BugGun" type="Node3D" unique_id=1597229924]
+script = ExtResource("1_gjvqm")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=313249208]
+transform = Transform3D(0.44, 0, 0, 0, 0.44, 0, 0, 0, 0.44, 0, 0, 0)
+texture = ExtResource("2_5iei8")

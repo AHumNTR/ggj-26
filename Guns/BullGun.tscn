@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://b6dauti61hf1x"]
+
+[ext_resource type="Script" uid="uid://dwu6yht2m71w0" path="res://Scripts/Bull.gd" id="1_qev2t"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_5iei8"]
+
+[node name="BulGun" type="Node3D" unique_id=1597229924]
+script = ExtResource("1_qev2t")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=669513879]
+transform = Transform3D(-5.6824803e-09, 0.13, 0, -0.13, -5.6824803e-09, 0, 0, 0, 0.13, 0, 0, 0)
+mesh = SubResource("CylinderMesh_5iei8")
