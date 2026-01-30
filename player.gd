@@ -42,6 +42,9 @@ var maxjumpamount := 2
 
 var horizontal_velocity = velocity
 
+
+var active_mask:Object #change object with custom mask class
+
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		rotate_y(-event.relative.x*SENSIVITY)
