@@ -4,10 +4,31 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_onrkg"]
 
-[node name="player" type="CharacterBody3D" unique_id=1195508512]
+[node name="player" type="CharacterBody3D" unique_id=1195508512 node_paths=PackedStringArray("head", "cam", "hand")]
 script = ExtResource("1_4flbx")
+head = NodePath("head")
+cam = NodePath("head/cam")
+hand = NodePath("head/hand")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2018290072]
 shape = SubResource("CapsuleShape3D_onrkg")
 
-[node name="Node3D" type="Node3D" parent="." unique_id=164291655]
+[node name="head" type="Node3D" parent="." unique_id=164291655]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.622873, 0)
+
+[node name="cam" type="Camera3D" parent="head" unique_id=990400763]
+current = true
+
+[node name="hand" type="Node3D" parent="head" unique_id=2043321649]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4280504, -0.32719058, -0.5054881)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="head/hand" unique_id=873337780]
+size = Vector3(0.1, 0.1, 0.1)
+
+[node name="slide_timer" type="Timer" parent="." unique_id=991605396]
+wait_time = 0.3
+one_shot = true
+
+[node name="slide_cooldown" type="Timer" parent="." unique_id=1036278765]
+wait_time = 0.5
+one_shot = true
