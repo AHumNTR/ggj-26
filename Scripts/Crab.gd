@@ -1,8 +1,9 @@
-class_name Bug
+class_name Crab
 extends Gun
 
-func _init():
-	gun_name="Bull"
+func _ready():
+	gun_name="Crab"
+	raycast=get_parent().raycast
 func shoot():
 	if not can_shoot:
 		return
@@ -20,7 +21,7 @@ func shoot():
 
 func interact():
 	# Example: Inspect the weapon or switch fire modes
-	print("Inspecting " + gun_name + "... It looks shiny.")
+	print("Inng " + gun_name + "... It looks shiny.")
 func start_cooldown():
 	can_shoot = false
 	await get_tree().create_timer(fire_rate).timeout

@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bjqpxe2qa5wlb"]
+
+[ext_resource type="Script" uid="uid://cjllfdskp2f7g" path="res://Scripts/Enemy.gd" id="1_er5oi"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_er5oi"]
+
+[node name="Enemy1" type="CharacterBody3D" unique_id=412581534]
+script = ExtResource("1_er5oi")
+MaxHealth = 100
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=703414354]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=972742393]
+shape = SubResource("BoxShape3D_er5oi")

@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://bdnhiq4wmshev" path="res://player.gd" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://chsy5bxpigubc" path="res://Scripts/GunController.gd" id="2_i3pqv"]
-[ext_resource type="PackedScene" uid="uid://cd5iljw3mpsge" path="res://Guns/BugGun.tscn" id="2_onrkg"]
-[ext_resource type="PackedScene" uid="uid://b6dauti61hf1x" path="res://Guns/BullGun.tscn" id="4_hqtel"]
+[ext_resource type="PackedScene" uid="uid://cd5iljw3mpsge" path="res://Guns/DefaultGun.tscn" id="2_onrkg"]
+[ext_resource type="PackedScene" uid="uid://b6dauti61hf1x" path="res://Guns/CrabGun.tscn" id="4_hqtel"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_onrkg"]
 
@@ -124,15 +124,17 @@ current = true
 unique_name_in_owner = true
 target_position = Vector3(0, 0, -1116.05)
 
-[node name="hand" type="Node3D" parent="head" unique_id=2043321649 node_paths=PackedStringArray("guns")]
+[node name="hand" type="Node3D" parent="head" unique_id=2043321649 node_paths=PackedStringArray("guns", "raycast")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4280504, -0.32719058, -0.5054881)
 script = ExtResource("2_i3pqv")
-guns = [NodePath("BugGun"), NodePath("BulGun")]
+guns = [NodePath("DefaultGun"), NodePath("CrabGun")]
+raycast = NodePath("../cam/RayCast3D")
 
-[node name="BugGun" parent="head/hand" unique_id=1597229924 node_paths=PackedStringArray("raycast") instance=ExtResource("2_onrkg")]
+[node name="DefaultGun" parent="head/hand" unique_id=1597229924 node_paths=PackedStringArray("raycast") instance=ExtResource("2_onrkg")]
 raycast = NodePath("../../cam/RayCast3D")
 
-[node name="BulGun" parent="head/hand" unique_id=1491299776 node_paths=PackedStringArray("raycast") instance=ExtResource("4_hqtel")]
+[node name="CrabGun" parent="head/hand" unique_id=1817927222 node_paths=PackedStringArray("raycast") instance=ExtResource("4_hqtel")]
+
 raycast = NodePath("../../cam/RayCast3D")
 
 [node name="slide_timer" type="Timer" parent="." unique_id=991605396]

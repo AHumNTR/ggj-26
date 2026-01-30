@@ -2,13 +2,17 @@ class_name GunController
 extends Node3D
 
 # Type hint ensures only Gun objects (or inheritors) can be added
-@export var guns: Array[Gun] = []
-
+var guns: Array[Gun]
+@onready var raycast: RayCast3D =$"../cam/RayCast3D"
 var current_gun_index: int = 0
 var current_gun: Gun = null
 
 func _ready():
 	# Initialize the first gun if available
+	for child in get_children():
+		# 2. Check if the child inherits from the 'Gun' class
+		if child is Gun:
+			guns.append(child)
 	if guns.size() > 0:
 		_equip_gun(0)
 
