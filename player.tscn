@@ -1,6 +1,9 @@
-[gd_scene format=3 uid="uid://dtaspexunm5ym"]
+[gd_scene format=3 uid="uid://bmqfdbicayqrx"]
 
 [ext_resource type="Script" uid="uid://bdnhiq4wmshev" path="res://player.gd" id="1_4flbx"]
+[ext_resource type="Script" uid="uid://chsy5bxpigubc" path="res://Scripts/GunController.gd" id="2_i3pqv"]
+[ext_resource type="PackedScene" uid="uid://cd5iljw3mpsge" path="res://Guns/BugGun.tscn" id="2_onrkg"]
+[ext_resource type="PackedScene" uid="uid://b6dauti61hf1x" path="res://Guns/BullGun.tscn" id="4_hqtel"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_onrkg"]
 
@@ -81,11 +84,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.622873, 0)
 [node name="cam" type="Camera3D" parent="head" unique_id=990400763]
 current = true
 
-[node name="hand" type="Node3D" parent="head" unique_id=2043321649]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4280504, -0.32719058, -0.5054881)
+[node name="RayCast3D" type="RayCast3D" parent="head/cam" unique_id=1375093382]
+unique_name_in_owner = true
+target_position = Vector3(0, 0, -1116.05)
 
-[node name="CSGBox3D" type="CSGBox3D" parent="head/hand" unique_id=873337780]
-size = Vector3(0.1, 0.1, 0.1)
+[node name="hand" type="Node3D" parent="head" unique_id=2043321649 node_paths=PackedStringArray("guns")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4280504, -0.32719058, -0.5054881)
+script = ExtResource("2_i3pqv")
+guns = [NodePath("BugGun"), NodePath("BulGun")]
+
+[node name="BugGun" parent="head/hand" unique_id=1597229924 node_paths=PackedStringArray("raycast") instance=ExtResource("2_onrkg")]
+raycast = NodePath("../../cam/RayCast3D")
+
+[node name="BulGun" parent="head/hand" unique_id=1817927222 node_paths=PackedStringArray("raycast") instance=ExtResource("4_hqtel")]
+raycast = NodePath("../../cam/RayCast3D")
 
 [node name="slide_timer" type="Timer" parent="." unique_id=991605396]
 wait_time = 0.6
