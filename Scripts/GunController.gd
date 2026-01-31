@@ -3,7 +3,7 @@ extends Node3D
 
 # Type hint ensures only Gun objects (or inheritors) can be added
 var guns: Array[Gun]
-@onready var raycast: RayCast3D =$"../cam/RayCast3D"
+@export var raycast: RayCast3D 
 var current_gun_index: int = 0
 var current_gun: Gun = null
 

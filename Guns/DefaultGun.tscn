@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://cd5iljw3mpsge"]
+[gd_scene format=3 uid="uid://cglxipv4hr2gn"]
 
-[ext_resource type="Script" uid="uid://dyha8nfekqcpc" path="res://Scripts/Default.gd" id="1_8fvh1"]
+[ext_resource type="Script" path="res://Scripts/Default.gd" id="1_8fvh1"]
 [ext_resource type="Texture2D" uid="uid://dtnbn4q8fvu0u" path="res://Textures/bug.png" id="2_bxrb6"]
 
 [node name="DefaultGun" type="Node3D" unique_id=1597229924]

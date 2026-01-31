@@ -1,14 +1,8 @@
 [gd_scene format=3 uid="uid://wu6tt5cs0byc"]
 
 [ext_resource type="PackedScene" uid="uid://bmqfdbicayqrx" path="res://player.tscn" id="1_f3sb7"]
-<<<<<<< HEAD
-[ext_resource type="Texture2D" uid="uid://4y40e1ouxtbf" path="res://icon.svg" id="1_fj7yv"]
-[ext_resource type="Shader" path="res://sky.gdshader" id="1_tlwt5"]
-[ext_resource type="PackedScene" uid="uid://bjqpxe2qa5wlb" path="res://Enemies/Enemy1.tscn" id="4_aqk2v"]
-=======
 [ext_resource type="Texture2D" uid="uid://p4w4qw7byaic" path="res://Textures/ground_tex.png" id="2_tlwt5"]
 [ext_resource type="PackedScene" uid="uid://dghfmmaacw68i" path="res://enemy_spawner.tscn" id="4_aqk2v"]
->>>>>>> c67f152 (added alternative enemy class and a basic enemy)
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_tlwt5"]
 sky_top_color = Color(1, 0.31377584, 0.2803165, 1)
@@ -53,10 +47,6 @@ texture_filter = 0
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1318533542]
 environment = SubResource("Environment_tlwt5")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1644414537]
-transform = Transform3D(-0.9999996, -0.0007406691, 0.00042765748, -0.00033002597, 0.7954733, 0.6059885, -0.00078904844, 0.60598814, -0.7954732, 0, 15.089474, 0)
-shadow_enabled = true
-
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1709383703]
 material_override = SubResource("StandardMaterial3D_tlwt5")
 use_collision = true
@@ -65,11 +55,10 @@ size = Vector3(200, 1, 200)
 [node name="player" parent="." unique_id=1195508512 instance=ExtResource("1_f3sb7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.365802, 0)
 
-<<<<<<< HEAD
-[node name="Enemy1" parent="." unique_id=412581534 instance=ExtResource("4_aqk2v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6490307, 1, 0.25579047)
-=======
 [node name="enemy_spawner" parent="." unique_id=370430451 node_paths=PackedStringArray("player") instance=ExtResource("4_aqk2v")]
 transform = Transform3D(0.35337692, 0.935481, 0, -0.935481, 0.35337692, 0, 0, 0, 1, 0, 1.9243686, 0)
 player = NodePath("../player")
->>>>>>> c67f152 (added alternative enemy class and a basic enemy)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1644414537]
+transform = Transform3D(-0.99999964, -0.00074068125, 0.00042767514, -0.000330026, 0.79547334, 0.60598856, -0.0007890485, 0.6059882, -0.7954733, 0, 15.089474, 0)
+shadow_enabled = true
