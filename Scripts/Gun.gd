@@ -15,5 +15,8 @@ func shoot():
 # This simulates an abstract method
 func interact():
 	push_error("Method 'interact' must be overridden in child class: %s" % name)
-
+func enableGun():
+	print()
 # Common helper function for cooldowns
+func disableGun():
+	print()

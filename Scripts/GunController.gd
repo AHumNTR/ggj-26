@@ -45,6 +45,7 @@ func _equip_gun(index: int):
 	if current_gun:
 		current_gun.visible = false
 		current_gun.set_process(false)
+		current_gun.disableGun()
 	
 	# Update index and reference
 	current_gun_index = index
@@ -54,4 +55,5 @@ func _equip_gun(index: int):
 	if current_gun:
 		current_gun.visible = true
 		current_gun.set_process(true)
+		current_gun.enableGun()
 		print("Equipped: " + current_gun.gun_name)

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dx6s3ry65hyqn"]
 
-[ext_resource type="Script" path="res://Scripts/Crab.gd" id="1_50ebn"]
+[ext_resource type="Script" uid="uid://dwu6yht2m71w0" path="res://Scripts/Guns/Crab.gd" id="1_qpm65"]
 [ext_resource type="Texture2D" uid="uid://bdxe8jd0twt2r" path="res://Textures/crab.png" id="2_50ebn"]
 
 [node name="CrabGun" type="Node3D" unique_id=1597229924]

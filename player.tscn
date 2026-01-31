@@ -132,7 +132,7 @@ current = true
 
 [node name="RayCast3D" type="RayCast3D" parent="head/cam" unique_id=1375093382]
 unique_name_in_owner = true
-target_position = Vector3(0, 0, -1116.05)
+target_position = Vector3(0, 0, -100)
 
 [node name="hand" type="Node3D" parent="head" unique_id=2043321649 node_paths=PackedStringArray("raycast")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4280504, -0.32719058, -0.5054881)
@@ -140,6 +140,7 @@ script = ExtResource("2_i3pqv")
 raycast = NodePath("../cam/RayCast3D")
 
 [node name="DefaultGun" parent="head/hand" unique_id=1597229924 node_paths=PackedStringArray("raycast") instance=ExtResource("2_onrkg")]
+visible = false
 raycast = NodePath("../../cam/RayCast3D")
 
 [node name="CrabGun" parent="head/hand" unique_id=1892218956 instance=ExtResource("6_2hs0m")]
