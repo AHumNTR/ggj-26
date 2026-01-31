@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://ratajomhdrcq"]
+
+[ext_resource type="Script" uid="uid://bxf1g3cmeyf4f" path="res://Scripts/Guns/BugAmmo.gd" id="1_480j5"]
+[ext_resource type="Texture2D" uid="uid://dcg8xknrjmf1m" path="res://Textures/BugAmmo.png" id="1_k6xyn"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_480j5"]
+radius = 0.117680036
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_h4cvm"]
+radius = 3.8662364
+
+[node name="Bug" type="Area3D" unique_id=1223268396]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_480j5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1094686155]
+shape = SubResource("SphereShape3D_480j5")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1442085348]
+transform = Transform3D(5.515, 0, 0, 0, 5.515, 0, 0, 0, 5.515, 0, 0, 0)
+texture = ExtResource("1_k6xyn")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=720658645]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=442319298]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, 0, 0, 0)
+shape = SubResource("SphereShape3D_h4cvm")

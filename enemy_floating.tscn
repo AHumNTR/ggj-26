@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bcetd2ox5wgvd"]
 
-[ext_resource type="Script" uid="uid://dec1qoj6yoaa6" path="res://Scripts/EnemyFloating.gd" id="1_3l4wj"]
+[ext_resource type="Script" path="res://Scripts/EnemyFloating.gd" id="1_3l4wj"]
 [ext_resource type="Texture2D" uid="uid://dmi21s7gmj33s" path="res://Textures/BugGhost.png" id="2_nthg2"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_3l4wj"]
@@ -29,6 +29,8 @@ animations = [{
 }]
 
 [node name="EnemyFloating" type="CharacterBody3D" unique_id=1126585756]
+collision_layer = 2
+collision_mask = 7
 script = ExtResource("1_3l4wj")
 speed = 3.0
 metadata/_custom_type_script = "uid://chf41ybnn0pjv"

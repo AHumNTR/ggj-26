@@ -1,28 +1,20 @@
-class_name Crab
+class_name Bug
 extends Gun
+@export var bocukScene: PackedScene
 @onready var sprite: AnimatedSprite3D= $"AnimatedSprite3D"
 func _ready():
-	gun_name="Crab"
+	gun_name="Bug"
 	super._ready()
 func shoot():
 	if not can_shoot:
 		return
 	
-	print(gun_name + " fired!")
-	
-	# Raycast logic example
-	if raycast.is_colliding():
-		var target = raycast.get_collider()
-		print(target)
-		if target.has_method("take_damage"):
-			target.take_damage(damage)
-			
+	var bocuk:Node3D= bocukScene.instantiate()
+	get_tree().root.add_child(bocuk)
+	bocuk.global_transform=raycast.global_transform
+
 	sprite.play("default")
 	start_cooldown()
-func enableGun():
-	raycast.target_position=Vector3(0,0,-2)
-func disableGun():
-	raycast.target_position=Vector3(0,0,-10000)
 func interact():
 	# Example: Inspect the weapon or switch fire modes
 	print("Inng " + gun_name + "... It looks shiny.")

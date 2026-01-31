@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dyus4do7kvxeb" path="res://Textures/maskplaceholder.png" id="5_sweqy"]
 [ext_resource type="PackedScene" uid="uid://dx6s3ry65hyqn" path="res://Guns/CrabGun.tscn" id="6_2hs0m"]
 [ext_resource type="PackedScene" uid="uid://cqggv3i006af7" path="res://Guns/RocketGun.tscn" id="7_1jxqw"]
+[ext_resource type="PackedScene" uid="uid://cd5iljw3mpsge" path="res://Guns/BugGun.tscn" id="8_b26j0"]
 [ext_resource type="QuadMesh" uid="uid://byqvlclc8terb" path="res://Particles/dustpass.tres" id="8_dw050"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_onrkg"]
@@ -157,15 +158,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.622873, 0)
 current = true
 
 [node name="DefaultRaycast" type="RayCast3D" parent="head/cam" unique_id=1375093382]
-unique_name_in_owner = true
 target_position = Vector3(0, 0, -100)
+collision_mask = 2
 
 [node name="MeleRaycast" type="RayCast3D" parent="head/cam" unique_id=71161088]
-target_position = Vector3(0, 0, -2)
+target_position = Vector3(0, 0, -4)
+collision_mask = 2
 
 [node name="RocketRaycast" type="RayCast3D" parent="head/cam" unique_id=2054811208]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.47072053, 0)
 target_position = Vector3(0, 0, -100)
+collision_mask = 2
 
 [node name="hand" type="Node3D" parent="head" unique_id=2043321649 node_paths=PackedStringArray("raycast")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4280504, -0.32719058, -0.5054881)
@@ -173,15 +176,20 @@ script = ExtResource("2_i3pqv")
 raycast = NodePath("../cam/DefaultRaycast")
 
 [node name="DefaultGun" parent="head/hand" unique_id=1597229924 node_paths=PackedStringArray("raycast") instance=ExtResource("2_onrkg")]
-visible = false
 raycast = NodePath("../../cam/DefaultRaycast")
 
 [node name="CrabGun" parent="head/hand" unique_id=1892218956 node_paths=PackedStringArray("raycast") instance=ExtResource("6_2hs0m")]
+visible = false
 raycast = NodePath("../../cam/MeleRaycast")
 
 [node name="RocketGun" parent="head/hand" unique_id=688959502 node_paths=PackedStringArray("raycast") instance=ExtResource("7_1jxqw")]
 transform = Transform3D(0.45, 0, 0, 0, 0.45, 0, 0, 0, 0.45, 0, 0, 0)
+visible = false
 raycast = NodePath("../../cam/RocketRaycast")
+
+[node name="BugGun" parent="head/hand" unique_id=1458374646 node_paths=PackedStringArray("raycast") instance=ExtResource("8_b26j0")]
+visible = false
+raycast = NodePath("../../cam/DefaultRaycast")
 
 [node name="slide_timer" type="Timer" parent="." unique_id=991605396]
 wait_time = 0.6
