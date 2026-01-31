@@ -179,7 +179,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4280504, -0.32719058, -0.50
 script = ExtResource("2_i3pqv")
 raycast = NodePath("../cam/DefaultRaycast")
 
-[node name="DefaultGun" parent="head/hand" unique_id=1597229924 instance=ExtResource("2_onrkg")]
+[node name="DefaultGun" parent="head/hand" unique_id=1597229924 node_paths=PackedStringArray("raycast") instance=ExtResource("2_onrkg")]
 visible = false
 raycast = NodePath("../../cam/DefaultRaycast")
 

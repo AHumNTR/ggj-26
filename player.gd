@@ -1,6 +1,5 @@
 class_name Player
 extends CharacterBody3D
-class_name Player
 #refs
 @export var head:Node3D
 @export var cam:Camera3D
