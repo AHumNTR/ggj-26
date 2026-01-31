@@ -4,7 +4,8 @@ class_name Enemy
 
 var score_value := 0.0
 var hp := 20
-
+var damage:=5.0
+@export var speed=5.0
 @warning_ignore("unused_parameter")
 func enemy_logic(delta):
 	pass

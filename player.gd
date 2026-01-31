@@ -1,5 +1,5 @@
 extends CharacterBody3D
-
+class_name Player
 #refs
 @export var head:Node3D
 @export var cam:Camera3D
@@ -35,7 +35,7 @@ var will_jump = false
 var is_sliding = false
 @onready var hand_def_pos = hand.position
 
-
+var hp:=100.0
 
 var maxjumpamount := 2
 @onready var jumpsleft:=maxjumpamount
@@ -150,8 +150,10 @@ func gun_sway(delta):
 	hand.position += Vector3(sin(sway_step)*get_forward_velocity()*0.0003,-abs(cos(sway_step+PI/2.0))*get_forward_velocity()*0.0003 ,0)
 
 
-
-
+func _process(delta: float) -> void:
+	$ui/hpbar.scale = (1.0 + clamp(smoothstep(0.0,20.0,abs($ui/hpbar.value-hp)),0.0,1.0))*Vector2.ONE
+	$ui/hpbar.value = lerp($ui/hpbar.value,hp,5.0*delta)
+	
 func _physics_process(delta):
 	skill_logic()
 	gun_sway(delta)
@@ -198,7 +200,17 @@ func _physics_process(delta):
 	for i in get_slide_collision_count():
 		var c = get_slide_collision(i)
 		
-		if c.get_collider() is Enemy and not slide_timer.is_stopped():
+		if c.get_collider() is Enemy:
 			var enemy:Enemy = c.get_collider()
-			enemy.take_damage(0.0)
-			enemy.velocity += (enemy.global_position-(global_position+Vector3.DOWN*0.5)).normalized()*50.0
+			if slide_timer.is_stopped():
+				take_damage(enemy.damage)
+			else:
+				enemy.take_damage(0.0)
+				enemy.velocity += (enemy.global_position-(global_position+Vector3.DOWN*0.5)).normalized()*50.0
+
+func take_damage(damage:float)->void:
+	if $inv_frames.is_stopped():
+		$inv_frames.start()
+		hp -= damage
+		print("damage taken ",damage)
+	return

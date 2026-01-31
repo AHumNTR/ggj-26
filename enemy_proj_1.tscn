@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://tkrmgo5wpjtu"]
+
+[ext_resource type="Script" uid="uid://btsuip34rctrf" path="res://Scripts/enemy_proj_1.gd" id="1_hbmpl"]
+[ext_resource type="Texture2D" uid="uid://cjs2bpgx5cpln" path="res://Textures/Smoke.png" id="2_xkxvt"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_hbmpl"]
+radius = 0.2
+
+[node name="EnemyProj1" type="Area3D" unique_id=1307855092]
+script = ExtResource("1_hbmpl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=301187781]
+shape = SubResource("SphereShape3D_hbmpl")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1936798093]
+billboard = 1
+texture = ExtResource("2_xkxvt")
+
+[node name="ded" type="Timer" parent="." unique_id=957593002]
+wait_time = 20.0
+autostart = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="ded" to="." method="_on_ded_timeout"]

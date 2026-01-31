@@ -2,10 +2,12 @@
 
 [ext_resource type="Script" uid="uid://dhqj5g7fq3xba" path="res://Scripts/enemy_spawner.gd" id="1_00s5r"]
 [ext_resource type="PackedScene" uid="uid://ic6bxhdq5x0j" path="res://enemy_basic.tscn" id="2_00s5r"]
+[ext_resource type="PackedScene" uid="uid://bcetd2ox5wgvd" path="res://enemy_floating.tscn" id="3_63vqd"]
+[ext_resource type="PackedScene" uid="uid://dlh1yd45rh5g0" path="res://enemy_ranged.tscn" id="4_i0ei4"]
 
 [node name="enemy_spawner" type="Node3D" unique_id=370430451]
 script = ExtResource("1_00s5r")
-enemies = Array[PackedScene]([ExtResource("2_00s5r")])
+enemies = Array[PackedScene]([ExtResource("2_00s5r"), ExtResource("3_63vqd"), ExtResource("4_i0ei4")])
 
 [node name="Timer" type="Timer" parent="." unique_id=193214734]
 one_shot = true

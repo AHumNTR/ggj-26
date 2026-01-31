@@ -94,7 +94,7 @@ offset_bottom = 288.0
 grow_horizontal = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
 theme_override_font_sizes/font_size = 32
-text = "PLAY"
+text = "START"
 
 [node name="HBoxContainer" type="VBoxContainer" parent="." unique_id=139728857]
 anchors_preset = 8
@@ -139,4 +139,83 @@ text = "GAME NAME"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="RichTextLabel2" type="RichTextLabel" parent="." unique_id=930340542]
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 365.0
+grow_vertical = 2
+bbcode_enabled = true
+text = "[shake rate=20.0 level=10][color=gray]LOOT DETECTED:[/color][/shake] 
+The fallen leave behind their [wave amp=40.0 freq=7.0][color=cyan][b] MASK[/b][/color][/wave]. 
+
+[pulse color=#ffffff44 freq=2.0]Press [b][color=yellow][E][/color][/b] to synchronize.[/pulse]
+
+[font_size=14][color=red]WARNING:[/color] Integration deepens the bond. 
+With every mask claimed, the [b]Link[/b] strengthens. 
+[shake rate=10.0 level=5]You grow powerful. [b]THEY[/b] grow hungry.[/shake][/font_size]"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1944332149]
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -293.0
+grow_horizontal = 0
+grow_vertical = 2
+bbcode_enabled = true
+text = "[center]
+[font_size=22][wave amp=25.0 freq=2.0][color=gray]Progress through[/color][/wave][/font_size]
+
+[font_size=38][shake rate=20.0 level=10][color=dark_red][b]WAVES[/b][/color][/shake][/font_size]
+
+[font_size=20][color=gray]in this[/color] [wave amp=50.0 freq=1.5][color=silver]unholy dance[/color][/wave][/font_size]
+
+[font_size=26]of [color=cyan][b]VESSELS[/b][/color] and [color=gold][b]POWERS[/b][/color][/font_size]
+[/center]"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="." unique_id=141762354]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -237.0
+grow_horizontal = 2
+grow_vertical = 0
+bbcode_enabled = true
+text = "[center]
+[font_size=18][color=gray]Every mask casts a[/color][/font_size]
+[font_size=32][wave amp=40.0 freq=4.0][color=cyan]REFLECTION[/color][/wave][/font_size]
+
+[font_size=16][color=gray]warping your[/color][/font_size]
+[font_size=24][color=gold]POWERS[/color] [color=gray]&[/color] [color=red]WEAPONS[/color][/font_size]
+
+[font_size=14][i][shake rate=10.0 level=3][color=dim_gray]A fragment of their soul, now bound to your trigger finger.[/color][/shake][/i][/font_size]
+[/center]"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="quit" type="Button" parent="." unique_id=251647313]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -144.0
+offset_top = -80.0
+offset_right = -41.0
+offset_bottom = -27.0
+grow_horizontal = 0
+grow_vertical = 0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_font_sizes/font_size = 32
+text = "QUIT"
+
 [connection signal="pressed" from="play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]

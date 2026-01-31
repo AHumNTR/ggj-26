@@ -2,6 +2,7 @@ extends Node3D
 
 @export var enemies:Array[PackedScene]
 @export var player:CharacterBody3D
+var wave = 1.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
