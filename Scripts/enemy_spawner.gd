@@ -18,4 +18,4 @@ func _on_timer_timeout() -> void:
 	var n: Enemy = enemies.pick_random().instantiate()
 	n.position = position
 	n.player = player
-	get_parent().add_child(n)
+	get_node("/root/world/enemies").add_child(n)

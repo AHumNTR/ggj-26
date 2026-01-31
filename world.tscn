@@ -64,3 +64,5 @@ player = NodePath("../player")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1644414537]
 transform = Transform3D(-0.99999964, -0.00074068125, 0.00042767514, -0.000330026, 0.79547334, 0.60598856, -0.0007890485, 0.6059882, -0.7954733, 0, 15.089474, 0)
 shadow_enabled = true
+
+[node name="enemies" type="Node3D" parent="." unique_id=1183267295]
