@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://bybilnhnp8se5"]
+
+[ext_resource type="Script" uid="uid://dwu6yht2m71w0" path="res://Scripts/Guns/Crab.gd" id="1_4vju6"]
+[ext_resource type="Texture2D" uid="uid://cx6t0c3qw267e" path="res://Textures/CrabHandAnim.png" id="2_jbin7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rripp"]
+atlas = ExtResource("2_jbin7")
+region = Rect2(0, 0, 224, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_doaod"]
+atlas = ExtResource("2_jbin7")
+region = Rect2(224, 0, 224, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2qtkw"]
+atlas = ExtResource("2_jbin7")
+region = Rect2(448, 0, 224, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mvler"]
+atlas = ExtResource("2_jbin7")
+region = Rect2(672, 0, 224, 160)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4ur0h"]
+animations = [{
+"frames": [{
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_rripp")
+}, {
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_doaod")
+}, {
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_2qtkw")
+}, {
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_mvler")
+}, {
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_rripp")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="CrabGun" type="Node3D" unique_id=1597229924]
+script = ExtResource("1_4vju6")
+gun_name = null
+fire_rate = null
+damage = 50
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=1043679874]
+transform = Transform3D(0.295, 0, 0, 0, 0.295, 0, 0, 0, 0.295, 0, 0.23553845, 0)
+billboard = 1
+sprite_frames = SubResource("SpriteFrames_4ur0h")
+frame_progress = 0.6060624

@@ -1,6 +1,6 @@
 class_name DefaultGun
 extends Gun
-
+@onready var sprite:AnimatedSprite3D= $"AnimatedSprite3D"
 func shoot():
 	if not can_shoot:
 		return
@@ -12,6 +12,7 @@ func shoot():
 			target.take_damage(damage)
 			
 	start_cooldown()
+	sprite.play("default")
 
 func interact():
 	# Example: Inspect the weapon or switch fire modes

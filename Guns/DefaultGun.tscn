@@ -1,12 +1,45 @@
 [gd_scene format=3 uid="uid://cglxipv4hr2gn"]
 
 [ext_resource type="Script" uid="uid://dyha8nfekqcpc" path="res://Scripts/Guns/Default.gd" id="1_8fvh1"]
-[ext_resource type="Texture2D" uid="uid://dtnbn4q8fvu0u" path="res://Textures/bug.png" id="2_bxrb6"]
+[ext_resource type="Texture2D" uid="uid://cu8llhl5aajkh" path="res://Textures/defaultGunAnim.png" id="2_8fvh1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bxrb6"]
+atlas = ExtResource("2_8fvh1")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0hqqu"]
+atlas = ExtResource("2_8fvh1")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0vfyg"]
+atlas = ExtResource("2_8fvh1")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rdntd"]
+animations = [{
+"frames": [{
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_bxrb6")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_0hqqu")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_0vfyg")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_bxrb6")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="DefaultGun" type="Node3D" unique_id=1597229924]
 script = ExtResource("1_8fvh1")
 
-[node name="Sprite3D" type="Sprite3D" parent="." unique_id=313249208]
-transform = Transform3D(0.44, 0, 0, 0, 0.44, 0, 0, 0, 0.44, 0, 0, 0)
-billboard = 1
-texture = ExtResource("2_bxrb6")
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=1103983466]
+transform = Transform3D(0.49, 0, 0, 0, 0.49, 0, 0, 0, 0.49, 0, -0.017793596, 0)
+sprite_frames = SubResource("SpriteFrames_rdntd")
+frame = 3
+frame_progress = 1.0

@@ -1,8 +1,30 @@
 [gd_scene format=3 uid="uid://ca41j4qxxutnu"]
 
-[ext_resource type="Texture2D" uid="uid://bsi745p6mqaf8" path="res://Textures/bazukaammmo.png" id="1_jb21x"]
 [ext_resource type="Script" uid="uid://dxu3g8yfkgquo" path="res://Scripts/Guns/RocketBullet.gd" id="1_m3mam"]
 [ext_resource type="PackedScene" uid="uid://e41tjnvrb0br" path="res://Particles/RocketParticle.tscn" id="2_82tx7"]
+[ext_resource type="Texture2D" uid="uid://cqmw3tfxddm3t" path="res://Textures/fireball.png" id="3_82tx7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f71i0"]
+atlas = ExtResource("3_82tx7")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y3j68"]
+atlas = ExtResource("3_82tx7")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5mfpj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f71i0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y3j68")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jb21x"]
 radius = 0.11425781
@@ -16,13 +38,15 @@ collision_layer = 0
 collision_mask = 6
 script = ExtResource("1_m3mam")
 particle = ExtResource("2_82tx7")
-speed = 10.0
+speed = 20.0
 jumpForce = 20.0
 damage = 30.0
 
-[node name="Sprite3D" type="Sprite3D" parent="." unique_id=683321207]
+[node name="Sprite3D" type="AnimatedSprite3D" parent="." unique_id=1415985741]
 transform = Transform3D(0.5426614, -7.335029e-09, -0.8399515, 0.52007794, 0.7852521, 0.33600304, 0.6595737, -0.61917615, 0.42612603, 0, 0, 0)
-texture = ExtResource("1_jb21x")
+pixel_size = 0.02
+billboard = 1
+sprite_frames = SubResource("SpriteFrames_5mfpj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1972825998]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.039382726, 0)
