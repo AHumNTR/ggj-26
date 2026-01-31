@@ -2,8 +2,11 @@
 
 [ext_resource type="Script" uid="uid://bdnhiq4wmshev" path="res://player.gd" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://chsy5bxpigubc" path="res://Scripts/GunController.gd" id="2_i3pqv"]
+
 [ext_resource type="PackedScene" uid="uid://cd5iljw3mpsge" path="res://Guns/DefaultGun.tscn" id="2_onrkg"]
 [ext_resource type="PackedScene" uid="uid://b6dauti61hf1x" path="res://Guns/CrabGun.tscn" id="4_hqtel"]
+[ext_resource type="Texture2D" uid="uid://cjs2bpgx5cpln" path="res://Textures/Smoke.png" id="4_hqtel"]
+[ext_resource type="Texture2D" uid="uid://dyus4do7kvxeb" path="res://Textures/maskplaceholder.png" id="5_sweqy"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_onrkg"]
 
@@ -100,9 +103,16 @@ direction = Vector3(0, 1, -0.2)
 spread = 20.0
 flatness = 0.183
 initial_velocity_min = 5.0
-initial_velocity_max = 20.0
+initial_velocity_max = 15.0
+scale_min = 0.5
+scale_max = 2.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sweqy"]
+transparency = 1
+albedo_texture = ExtResource("4_hqtel")
 
 [sub_resource type="QuadMesh" id="QuadMesh_hqtel"]
+material = SubResource("StandardMaterial3D_sweqy")
 size = Vector2(0.2, 0.2)
 
 [node name="player" type="CharacterBody3D" unique_id=1195508512 node_paths=PackedStringArray("head", "cam", "hand")]
@@ -110,6 +120,7 @@ script = ExtResource("1_4flbx")
 head = NodePath("head")
 cam = NodePath("head/cam")
 hand = NodePath("head/hand")
+mask_sprites = Array[Texture2D]([ExtResource("4_hqtel"), ExtResource("5_sweqy")])
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2018290072]
 shape = SubResource("CapsuleShape3D_onrkg")
@@ -149,8 +160,27 @@ libraries/ = SubResource("AnimationLibrary_i3pqv")
 
 [node name="dust" type="GPUParticles3D" parent="." unique_id=324216927]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.58762085, -0.41825533)
+visible = false
 emitting = false
 amount = 48
 explosiveness = 0.15
 process_material = SubResource("ParticleProcessMaterial_i3pqv")
 draw_pass_1 = SubResource("QuadMesh_hqtel")
+
+[node name="ui" type="CanvasLayer" parent="." unique_id=905685484]
+
+[node name="mask" type="Control" parent="ui" unique_id=156126633]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 112.0
+offset_top = -88.0
+offset_right = 112.0
+offset_bottom = -88.0
+grow_vertical = 0
+
+[node name="masksprite" type="Sprite2D" parent="ui/mask" unique_id=1484945954]
+scale = Vector2(2, 2)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=283381893]

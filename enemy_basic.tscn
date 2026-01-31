@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://ic6bxhdq5x0j"]
+
+[ext_resource type="Script" uid="uid://chf41ybnn0pjv" path="res://Scripts/EnemyBasic.gd" id="1_20uc5"]
+[ext_resource type="Texture2D" uid="uid://dmi21s7gmj33s" path="res://Textures/BugGhost.png" id="2_g2x43"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g2x43"]
+size = Vector3(1, 1, 0.114)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2eiu5"]
+atlas = ExtResource("2_g2x43")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ge783"]
+atlas = ExtResource("2_g2x43")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2hcwk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2eiu5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ge783")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[node name="EnemyBasic" type="CharacterBody3D" unique_id=1126585756]
+script = ExtResource("1_20uc5")
+metadata/_custom_type_script = "uid://chf41ybnn0pjv"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=424920587]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0013427734, -0.0015869141, 0.004211426)
+shape = SubResource("BoxShape3D_g2x43")
+
+[node name="Sprite3D" type="AnimatedSprite3D" parent="." unique_id=641626010]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43398494, 0)
+pixel_size = 0.02
+billboard = 2
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_2hcwk")
+animation = &"run"
+
+[node name="Timer" type="Timer" parent="." unique_id=235797103]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

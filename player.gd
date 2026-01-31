@@ -43,7 +43,25 @@ var maxjumpamount := 2
 var horizontal_velocity = velocity
 
 
-var active_mask:Object #change object with custom mask class
+var active_mask:int = 0 #change object with custom mask class
+@export var mask_sprites:Array[Texture2D]
+
+
+func skill_logic():
+	$ui/mask/masksprite.texture = mask_sprites[active_mask]
+	speed_scale = 1.0
+	maxjumpamount = 1
+	match active_mask: #change integers with custom mask ENUM
+		0:
+			pass # do nothing and display no mask symbol
+		1:
+			speed_scale = 1.5
+		2:
+			maxjumpamount = 2
+		3:
+			pass #idk
+
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
@@ -135,14 +153,14 @@ func gun_sway(delta):
 
 
 func _physics_process(delta):
-
+	skill_logic()
 	gun_sway(delta)
 	
 	rotate_y(Input.get_axis("ui_left","ui_right")*-0.3/(sqrt(get_h_velocity())+1))
 	
 	handle_input()
 	
-	if Input.is_action_just_pressed("slide") and slide_cooldown.is_stopped() and wish_dir:
+	if is_on_floor() and Input.is_action_just_pressed("slide") and slide_cooldown.is_stopped() and wish_dir:
 		slide_timer.start()
 		slide_cooldown.start()
 		$AnimationPlayer.play("slide")
@@ -177,3 +195,10 @@ func _physics_process(delta):
 
 
 	move_and_slide()
+	for i in get_slide_collision_count():
+		var c = get_slide_collision(i)
+		
+		if c.get_collider() is EnemyAlt and not slide_timer.is_stopped():
+			var enemy:EnemyAlt = c.get_collider()
+			enemy.take_damage(0.0)
+			enemy.velocity += (enemy.global_position-(global_position+Vector3.DOWN*0.5)).normalized()*50.0

@@ -1,52 +1,52 @@
 [gd_scene format=3 uid="uid://wu6tt5cs0byc"]
 
 [ext_resource type="PackedScene" uid="uid://bmqfdbicayqrx" path="res://player.tscn" id="1_f3sb7"]
+<<<<<<< HEAD
 [ext_resource type="Texture2D" uid="uid://4y40e1ouxtbf" path="res://icon.svg" id="1_fj7yv"]
 [ext_resource type="Shader" path="res://sky.gdshader" id="1_tlwt5"]
 [ext_resource type="PackedScene" uid="uid://bjqpxe2qa5wlb" path="res://Enemies/Enemy1.tscn" id="4_aqk2v"]
+=======
+[ext_resource type="Texture2D" uid="uid://p4w4qw7byaic" path="res://Textures/ground_tex.png" id="2_tlwt5"]
+[ext_resource type="PackedScene" uid="uid://dghfmmaacw68i" path="res://enemy_spawner.tscn" id="4_aqk2v"]
+>>>>>>> c67f152 (added alternative enemy class and a basic enemy)
 
-[sub_resource type="Curve" id="Curve_aqk2v"]
-_data = [Vector2(0.0314171, 0), 0.0, 0.0, 0, 0, Vector2(0.24532086, 0), 0.0, 0.0, 0, 0, Vector2(0.7907754, 0.9563759), 0.0, 0.0, 0, 0]
-point_count = 3
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_tlwt5"]
+sky_top_color = Color(1, 0.31377584, 0.2803165, 1)
+sky_horizon_color = Color(1, 0.3137255, 0.2784314, 1)
+ground_bottom_color = Color(1, 0.3137255, 0.2784314, 1)
+ground_horizon_color = Color(1, 0.3137255, 0.2784314, 1)
 
-[sub_resource type="CurveTexture" id="CurveTexture_036b0"]
-curve = SubResource("Curve_aqk2v")
-
-[sub_resource type="Gradient" id="Gradient_dwbse"]
-offsets = PackedFloat32Array(0, 0.85308444, 1)
-colors = PackedColorArray(1, 1, 1, 1, 0.91964287, 0.91964287, 0.91964287, 1, 0, 0, 0, 1)
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_pkg7o"]
-frequency = 0.186
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_gbfbk"]
-noise = SubResource("FastNoiseLite_pkg7o")
-color_ramp = SubResource("Gradient_dwbse")
-seamless = true
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ioo17"]
-shader = ExtResource("1_tlwt5")
-shader_parameter/top_color = Color(0.568711, 0, 0.24306926, 1)
-shader_parameter/bottom_color = Color(0.719546, 0.33517, 0, 1)
-shader_parameter/gradient_curve = SubResource("CurveTexture_036b0")
-shader_parameter/noise_texture = SubResource("NoiseTexture2D_gbfbk")
-
-[sub_resource type="Sky" id="Sky_wse8f"]
-sky_material = SubResource("ShaderMaterial_ioo17")
+[sub_resource type="Sky" id="Sky_aqk2v"]
+sky_material = SubResource("ProceduralSkyMaterial_tlwt5")
 
 [sub_resource type="Environment" id="Environment_tlwt5"]
 background_mode = 2
-sky = SubResource("Sky_wse8f")
-ambient_light_color = Color(0.63529414, 0.105882354, 0.23921569, 1)
-ambient_light_sky_contribution = 0.0
+sky = SubResource("Sky_aqk2v")
+ambient_light_energy = 0.0
 tonemap_mode = 2
 glow_enabled = true
+volumetric_fog_density = 0.01
+volumetric_fog_albedo = Color(1, 0.42352942, 0.39607844, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_tlwt5"]
+frequency = 0.0025
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_aqk2v"]
+noise = SubResource("FastNoiseLite_tlwt5")
+seamless = true
+as_normal_map = true
+bump_strength = 10.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tlwt5"]
-albedo_texture = ExtResource("1_fj7yv")
+albedo_color = Color(0.39308554, 0.3930855, 0.39308548, 1)
+albedo_texture = ExtResource("2_tlwt5")
+metallic_specular = 0.07
 normal_enabled = true
+normal_scale = 5.0
+normal_texture = SubResource("NoiseTexture2D_aqk2v")
 uv1_triplanar = true
 uv2_world_triplanar = true
+texture_filter = 0
 
 [node name="world" type="Node3D" unique_id=1301096687]
 
@@ -54,7 +54,7 @@ uv2_world_triplanar = true
 environment = SubResource("Environment_tlwt5")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1644414537]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+transform = Transform3D(-0.9999996, -0.0007406691, 0.00042765748, -0.00033002597, 0.7954733, 0.6059885, -0.00078904844, 0.60598814, -0.7954732, 0, 15.089474, 0)
 shadow_enabled = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1709383703]
@@ -65,5 +65,11 @@ size = Vector3(200, 1, 200)
 [node name="player" parent="." unique_id=1195508512 instance=ExtResource("1_f3sb7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.365802, 0)
 
+<<<<<<< HEAD
 [node name="Enemy1" parent="." unique_id=412581534 instance=ExtResource("4_aqk2v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6490307, 1, 0.25579047)
+=======
+[node name="enemy_spawner" parent="." unique_id=370430451 node_paths=PackedStringArray("player") instance=ExtResource("4_aqk2v")]
+transform = Transform3D(0.35337692, 0.935481, 0, -0.935481, 0.35337692, 0, 0, 0, 1, 0, 1.9243686, 0)
+player = NodePath("../player")
+>>>>>>> c67f152 (added alternative enemy class and a basic enemy)

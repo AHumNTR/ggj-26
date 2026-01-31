@@ -1,10 +1,87 @@
 [gd_scene format=3 uid="uid://beoxhs1esivw8"]
 
 [ext_resource type="Script" uid="uid://d1rr07643ouwp" path="res://main_menu.gd" id="1_06t4h"]
-[ext_resource type="Texture2D" uid="uid://4y40e1ouxtbf" path="res://icon.svg" id="2_7vrkn"]
+[ext_resource type="Texture2D" uid="uid://p4w4qw7byaic" path="res://Textures/ground_tex.png" id="2_7vrkn"]
+
+[sub_resource type="Curve" id="Curve_glbon"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_nlkkf"]
+curve = SubResource("Curve_glbon")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qe12f"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(1600, 1, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+angle_min = -179.99998
+angle_max = 180.00002
+direction = Vector3(0, 1, 0)
+initial_velocity_min = -200.0
+initial_velocity_max = -200.0
+angular_velocity_min = -20.000015
+angular_velocity_max = 19.999983
+gravity = Vector3(0, 0, 0)
+scale_min = 5.0
+scale_max = 15.0
+scale_curve = SubResource("CurveTexture_nlkkf")
+color = Color(1.7479345, 0.6998183, 0.20371, 1)
+
+[sub_resource type="Gradient" id="Gradient_fu7sn"]
+colors = PackedColorArray(0.81972045, 0.1751413, 4.813075e-07, 1, 0.5160759, 0.0012860778, 0.29135084, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_jix8l"]
+gradient = SubResource("Gradient_fu7sn")
+fill_from = Vector2(0.5, 1)
+fill_to = Vector2(0.5, 0)
+metadata/_snap_enabled = true
+
+[sub_resource type="Environment" id="Environment_8qtwp"]
+background_mode = 3
+glow_enabled = true
+glow_intensity = 0.83
+glow_strength = 0.99
+glow_bloom = 0.72
+glow_hdr_threshold = 0.8
 
 [node name="main menu" type="CanvasLayer" unique_id=157043708]
+layer = -1
 script = ExtResource("1_06t4h")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1630747183]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+texture = ExtResource("2_7vrkn")
+stretch_mode = 1
+
+[node name="Control" type="Control" parent="." unique_id=111469457]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Control" unique_id=1821215182]
+amount = 32
+lifetime = 2.0
+process_material = SubResource("ParticleProcessMaterial_qe12f")
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=1324674166]
+modulate = Color(1, 1, 1, 0.3372549)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_jix8l")
 
 [node name="play" type="Button" parent="." unique_id=949956629]
 anchors_preset = 5
@@ -19,7 +96,7 @@ pivot_offset_ratio = Vector2(0.5, 0.5)
 theme_override_font_sizes/font_size = 32
 text = "PLAY"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1626803146]
+[node name="HBoxContainer" type="VBoxContainer" parent="." unique_id=139728857]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -28,17 +105,38 @@ anchor_bottom = 0.5
 offset_left = -130.0
 offset_top = -7.0
 offset_right = 130.0
-offset_bottom = 121.0
+offset_bottom = 166.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
 
-[node name="TextureButton" type="TextureButton" parent="HBoxContainer" unique_id=1390546253]
+[node name="Label" type="Label" parent="HBoxContainer" unique_id=979775899]
 layout_mode = 2
-texture_normal = ExtResource("2_7vrkn")
+text = "Sound effects"
 
-[node name="TextureButton2" type="TextureButton" parent="HBoxContainer" unique_id=1751804807]
+[node name="HSlider" type="HSlider" parent="HBoxContainer" unique_id=1817736930]
 layout_mode = 2
-texture_normal = ExtResource("2_7vrkn")
+value = 100.0
+
+[node name="Label2" type="Label" parent="HBoxContainer" unique_id=944268351]
+layout_mode = 2
+text = "Music"
+
+[node name="HSlider2" type="HSlider" parent="HBoxContainer" unique_id=239884320]
+layout_mode = 2
+value = 100.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1413278416]
+environment = SubResource("Environment_8qtwp")
+
+[node name="Label" type="Label" parent="." unique_id=1291679295]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 203.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 64
+text = "GAME NAME"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="play" to="." method="_on_play_pressed"]
