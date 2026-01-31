@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dyus4do7kvxeb" path="res://Textures/maskplaceholder.png" id="5_sweqy"]
 [ext_resource type="PackedScene" uid="uid://dx6s3ry65hyqn" path="res://Guns/CrabGun.tscn" id="6_2hs0m"]
 [ext_resource type="PackedScene" uid="uid://cqggv3i006af7" path="res://Guns/RocketGun.tscn" id="7_1jxqw"]
+[ext_resource type="QuadMesh" uid="uid://byqvlclc8terb" path="res://Particles/dustpass.tres" id="8_dw050"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_onrkg"]
 
@@ -107,14 +108,6 @@ initial_velocity_max = 15.0
 scale_min = 0.5
 scale_max = 2.0
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sweqy"]
-transparency = 1
-albedo_texture = ExtResource("4_hqtel")
-
-[sub_resource type="QuadMesh" id="QuadMesh_hqtel"]
-material = SubResource("StandardMaterial3D_sweqy")
-size = Vector2(0.2, 0.2)
-
 [sub_resource type="Gradient" id="Gradient_2hs0m"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
 
@@ -206,7 +199,7 @@ emitting = false
 amount = 48
 explosiveness = 0.15
 process_material = SubResource("ParticleProcessMaterial_i3pqv")
-draw_pass_1 = SubResource("QuadMesh_hqtel")
+draw_pass_1 = ExtResource("8_dw050")
 
 [node name="ui" type="CanvasLayer" parent="." unique_id=905685484]
 

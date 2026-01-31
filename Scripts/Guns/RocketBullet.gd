@@ -1,6 +1,6 @@
 extends Area3D
 
-
+@export var particle: PackedScene
 @export var speed: float
 @export var jumpForce: float
 @export var damage: float
@@ -20,4 +20,7 @@ func _on_body_entered(body: Node3D) -> void:
 		elif(kill.has_method("take_damage")):
 				
 			kill.take_damage(10000)
-		
+	var particleInstance: Node3D=particle.instantiate()
+	get_tree().root.add_child(particleInstance)
+	particleInstance.global_position=global_position
+	queue_free()
