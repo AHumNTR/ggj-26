@@ -21,6 +21,7 @@ shape = SubResource("SphereShape3D_480j5")
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=1442085348]
 transform = Transform3D(5.515, 0, 0, 0, 5.515, 0, 0, 0, 5.515, 0, 0, 0)
 billboard = 1
+texture_filter = 0
 texture = ExtResource("1_k6xyn")
 
 [node name="Area3D" type="Area3D" parent="." unique_id=720658645]

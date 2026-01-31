@@ -55,6 +55,8 @@ script = ExtResource("1_hlwfn")
 rocket = ExtResource("2_4jtj7")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=258289758]
+billboard = 1
+texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_5eyfy")
 frame = 1
 frame_progress = 0.058143504

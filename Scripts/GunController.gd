@@ -27,8 +27,9 @@ func _input(event):
 	if current_gun:
 		if event.is_action_pressed("fire"):
 			current_gun.shoot()
-		if event.is_action_pressed("interact"):
-			current_gun.interact()
+		if event.is_action_pressed("equip"):
+			pass
+			#current_gun.interact() #neden inspect ekledin hacı
 
 func switch_weapon(direction: int):
 	# Calculate new index with wrapping

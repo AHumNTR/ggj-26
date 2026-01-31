@@ -2,21 +2,14 @@
 
 [ext_resource type="PackedScene" uid="uid://bmqfdbicayqrx" path="res://player.tscn" id="1_f3sb7"]
 [ext_resource type="Texture2D" uid="uid://p4w4qw7byaic" path="res://Textures/ground_tex.png" id="2_tlwt5"]
+[ext_resource type="Script" uid="uid://caxlnol7dvrkd" path="res://globalui.gd" id="4_036b0"]
 [ext_resource type="PackedScene" uid="uid://dghfmmaacw68i" path="res://enemy_spawner.tscn" id="4_aqk2v"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_tlwt5"]
-sky_top_color = Color(1, 0.31377584, 0.2803165, 1)
-sky_horizon_color = Color(1, 0.3137255, 0.2784314, 1)
-ground_bottom_color = Color(1, 0.3137255, 0.2784314, 1)
-ground_horizon_color = Color(1, 0.3137255, 0.2784314, 1)
-
-[sub_resource type="Sky" id="Sky_aqk2v"]
-sky_material = SubResource("ProceduralSkyMaterial_tlwt5")
-
 [sub_resource type="Environment" id="Environment_tlwt5"]
-background_mode = 2
-sky = SubResource("Sky_aqk2v")
-ambient_light_energy = 0.0
+background_mode = 1
+background_color = Color(0.8659264, 0, 0.1953721, 1)
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
 tonemap_mode = 2
 glow_enabled = true
 volumetric_fog_density = 0.01
@@ -34,7 +27,7 @@ bump_strength = 10.0
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tlwt5"]
 albedo_color = Color(0.39308554, 0.3930855, 0.39308548, 1)
 albedo_texture = ExtResource("2_tlwt5")
-metallic_specular = 0.07
+metallic_specular = 0.31
 normal_enabled = true
 normal_scale = 5.0
 normal_texture = SubResource("NoiseTexture2D_aqk2v")
@@ -63,6 +56,21 @@ player = NodePath("../player")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1644414537]
 transform = Transform3D(-0.99999964, -0.00074068125, 0.00042767514, -0.000330026, 0.79547334, 0.60598856, -0.0007890485, 0.6059882, -0.7954733, 0, 15.089474, 0)
+visible = false
 shadow_enabled = true
 
 [node name="enemies" type="Node3D" parent="." unique_id=1183267295]
+
+[node name="globalui" type="CanvasLayer" parent="." unique_id=1553629028]
+script = ExtResource("4_036b0")
+
+[node name="ProgressBar" type="ProgressBar" parent="globalui" unique_id=1374995669]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -128.0
+offset_top = 53.0
+offset_right = 128.0
+offset_bottom = 80.0
+grow_horizontal = 2

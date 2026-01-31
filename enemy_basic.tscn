@@ -6,22 +6,43 @@
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_g2x43"]
 height = 0.7685547
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2eiu5"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_g2x43"]
 atlas = ExtResource("2_g2x43")
 region = Rect2(0, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ge783"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_2eiu5"]
 atlas = ExtResource("2_g2x43")
 region = Rect2(128, 0, 128, 128)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_2hcwk"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ge783"]
+atlas = ExtResource("2_g2x43")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2hcwk"]
+atlas = ExtResource("2_g2x43")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fvy52"]
+atlas = ExtResource("2_g2x43")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pfill"]
 animations = [{
 "frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g2x43")
+}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2eiu5")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ge783")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2hcwk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fvy52")
 }],
 "loop": true,
 "name": &"run",
@@ -43,7 +64,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43398494, 0)
 pixel_size = 0.02
 billboard = 2
 texture_filter = 0
-sprite_frames = SubResource("SpriteFrames_2hcwk")
+sprite_frames = SubResource("SpriteFrames_pfill")
 animation = &"run"
 
 [node name="Timer" type="Timer" parent="." unique_id=235797103]

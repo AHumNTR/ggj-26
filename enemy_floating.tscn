@@ -1,10 +1,12 @@
 [gd_scene format=3 uid="uid://bcetd2ox5wgvd"]
 
-[ext_resource type="Script" path="res://Scripts/EnemyFloating.gd" id="1_3l4wj"]
+[ext_resource type="Script" uid="uid://dec1qoj6yoaa6" path="res://Scripts/EnemyFloating.gd" id="1_3l4wj"]
+[ext_resource type="Texture2D" uid="uid://choe0hnoje1x5" path="res://Textures/DarkBlueGhostAnim.png" id="2_10nij"]
 [ext_resource type="Texture2D" uid="uid://dmi21s7gmj33s" path="res://Textures/BugGhost.png" id="2_nthg2"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_3l4wj"]
-height = 0.6731262
+height = 3.0200882
+radius = 1.4907227
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2eiu5"]
 atlas = ExtResource("2_nthg2")
@@ -18,6 +20,9 @@ region = Rect2(128, 0, 128, 128)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("2_10nij")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_2eiu5")
 }, {
 "duration": 1.0,
@@ -28,18 +33,132 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Animation" id="Animation_nthg2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("body:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.0038366318, 0.2880972, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("head:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("hand1:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-2.147878, 0.1440486, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("hand2:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(2.278983, 1.2864802, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_jpl0c"]
+resource_name = "float"
+length = 4.0
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("body:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.1, 0), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("head:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.1, 0, 0), Vector3(0, 0.09846449, 0), Vector3(-0.1, 0, 0), Vector3(0, 0.06329858, 0), Vector3(0.1, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("hand1:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-2.148, -1.466, 0), Vector3(-1.1620493, -0.05313313, 0.014826536), Vector3(-2.0653892, 1.3597337, 0.029653072), Vector3(-3.2889943, -0.05313313, 0.014826536)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("hand2:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(2.278983, 1.2864802, 0), Vector3(1.0644596, 0.10339236, 0), Vector3(2.278983, -1.0796955, 0), Vector3(3.4063368, 0.10339236, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mlwup"]
+_data = {
+&"RESET": SubResource("Animation_nthg2"),
+&"float": SubResource("Animation_jpl0c")
+}
+
 [node name="EnemyFloating" type="CharacterBody3D" unique_id=1126585756]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 collision_layer = 2
 collision_mask = 7
 script = ExtResource("1_3l4wj")
+type = 2
 speed = 3.0
 metadata/_custom_type_script = "uid://chf41ybnn0pjv"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=424920587]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05978012, 0)
 shape = SubResource("CylinderShape3D_3l4wj")
 
 [node name="Sprite3D" type="AnimatedSprite3D" parent="." unique_id=641626010]
-modulate = Color(0.6937255, 0.26148176, 0.1405715, 1)
+visible = false
 pixel_size = 0.02
 billboard = 2
 texture_filter = 0
@@ -50,5 +169,49 @@ animation = &"run"
 wait_time = 10.0
 one_shot = true
 autostart = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=466756327]
+libraries/ = SubResource("AnimationLibrary_mlwup")
+
+[node name="body" type="Sprite3D" parent="." unique_id=834156936]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0038366318, 0.2880972, 0)
+pixel_size = 0.04
+billboard = 2
+texture_filter = 0
+texture = ExtResource("2_10nij")
+region_enabled = true
+region_rect = Rect2(11, 1, 110, 95)
+
+[node name="hand1" type="Sprite3D" parent="." unique_id=1645226801]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.147878, 0.1440486, 0)
+sorting_offset = 1.0
+pixel_size = 0.04
+billboard = 2
+texture_filter = 0
+texture = ExtResource("2_10nij")
+region_enabled = true
+region_rect = Rect2(1, 92, 40, 36)
+
+[node name="hand2" type="Sprite3D" parent="." unique_id=1157366535]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.278983, 1.2864802, 0)
+sorting_offset = 1.0
+pixel_size = 0.04
+billboard = 2
+texture_filter = 0
+texture = ExtResource("2_10nij")
+region_enabled = true
+region_rect = Rect2(44, 98, 38, 30)
+
+[node name="head" type="Sprite3D" parent="." unique_id=304693430]
+sorting_offset = 0.1
+pixel_size = 0.04
+billboard = 2
+texture_filter = 0
+texture = ExtResource("2_10nij")
+region_enabled = true
+region_rect = Rect2(95, 99, 33, 29)
+
+[node name="Node3D" type="Node3D" parent="." unique_id=2036297384]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2577355, 0, 0)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

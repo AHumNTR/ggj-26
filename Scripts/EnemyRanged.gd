@@ -19,8 +19,8 @@ func enemy_logic(delta):
 	match state:
 		Moving:
 			if get_node_or_null("Sprite3D"):
-				$Sprite3D.global_position.y = 2.5 + 0.5*sin(frame/10.0)
-				$CollisionShape3D.global_position.y = 2.0 + 0.5*sin(frame/10.0)
+				$Sprite3D.global_position.y = 1.8 + 0.3*sin(frame/10.0)
+				#$CollisionShape3D.global_position.y = 2.0 + 0.5*sin(frame/10.0)
 				if $Sprite3D.sprite_frames.has_animation("run"):
 					$Sprite3D.play("run")
 			velocity.x = lerp(velocity.x,(target_pos-global_position).normalized().x*5.0,20.0*delta)

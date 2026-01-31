@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bybilnhnp8se5"]
+[gd_scene format=3 uid="uid://dssurk6tsuvt"]
 
 [ext_resource type="Script" uid="uid://dwu6yht2m71w0" path="res://Scripts/Guns/Crab.gd" id="1_4vju6"]
 [ext_resource type="Texture2D" uid="uid://cx6t0c3qw267e" path="res://Textures/CrabHandAnim.png" id="2_jbin7"]
@@ -51,5 +51,6 @@ damage = 50
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=1043679874]
 transform = Transform3D(0.295, 0, 0, 0, 0.295, 0, 0, 0, 0.295, 0, 0.23553845, 0)
 billboard = 1
+texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_4ur0h")
 frame_progress = 0.6060624

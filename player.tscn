@@ -170,6 +170,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.47072053, 0)
 target_position = Vector3(0, 0, -100)
 collision_mask = 2
 
+[node name="MaskRaycast" type="RayCast3D" parent="head/cam" unique_id=1174529698]
+target_position = Vector3(0, 0, -5)
+collide_with_areas = true
+collide_with_bodies = false
+
 [node name="hand" type="Node3D" parent="head" unique_id=2043321649 node_paths=PackedStringArray("raycast")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4280504, -0.32719058, -0.5054881)
 script = ExtResource("2_i3pqv")
@@ -258,8 +263,6 @@ pivot_offset_ratio = Vector2(0.5, 0.5)
 theme_override_styles/background = SubResource("StyleBoxFlat_2hs0m")
 theme_override_styles/fill = SubResource("StyleBoxFlat_1jxqw")
 value = 100.0
-
-[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=283381893]
 
 [node name="inv_frames" type="Timer" parent="." unique_id=258506999]
 wait_time = 0.2

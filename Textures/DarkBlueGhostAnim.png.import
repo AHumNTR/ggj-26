@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dyus4do7kvxeb"
-path.s3tc="res://.godot/imported/maskplaceholder.png-54cc5d28fefe80f9604d5e3c6fec4c15.s3tc.ctex"
+uid="uid://choe0hnoje1x5"
+path.s3tc="res://.godot/imported/DarkBlueGhostAnim.png-58c45afdfd4d6f21f70a507633f25b49.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Textures/maskplaceholder.png"
-dest_files=["res://.godot/imported/maskplaceholder.png-54cc5d28fefe80f9604d5e3c6fec4c15.s3tc.ctex"]
+source_file="res://Textures/DarkBlueGhostAnim.png"
+dest_files=["res://.godot/imported/DarkBlueGhostAnim.png-58c45afdfd4d6f21f70a507633f25b49.s3tc.ctex"]
 
 [params]
 

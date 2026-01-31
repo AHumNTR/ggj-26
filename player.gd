@@ -48,7 +48,6 @@ var active_mask:int = 0 #change object with custom mask class
 
 
 func skill_logic():
-	$ui/mask/masksprite.texture = mask_sprites[active_mask]
 	speed_scale = 1.0
 	maxjumpamount = 1
 	match active_mask: #change integers with custom mask ENUM
@@ -85,7 +84,10 @@ func handle_input():
 	var key_input = Input.get_vector("left", "right", "forward", "backward")
 	wish_dir = (transform.basis * Vector3(key_input.x, 0, key_input.y)).normalized()
 	will_jump = Input.is_action_just_pressed("jump") and jumpsleft > 0
+
+
 func ground_movement(delta):
+	
 	var speed = velocity.length()
 	if speed != 0 and slide_timer.is_stopped():
 		friction(FRICTION,speed,delta)
@@ -155,6 +157,15 @@ func _process(delta: float) -> void:
 	$ui/hpbar.value = lerp($ui/hpbar.value,hp,5.0*delta)
 	
 func _physics_process(delta):
+	if $head/cam/MaskRaycast.is_colliding():
+		var col:Area3D = $head/cam/MaskRaycast.get_collider()
+		if col is Mask and Input.is_action_just_pressed("equip"):
+			var c:Mask = col
+			active_mask = c.type
+			print(active_mask)
+			$head/hand._equip_gun(active_mask)
+			$ui/mask/masksprite.texture = c.mask_sprites[active_mask]
+			c.queue_free()
 	skill_logic()
 	gun_sway(delta)
 	
@@ -185,8 +196,7 @@ func _physics_process(delta):
 	if will_jump:
 		jumpsleft -= 1
 		velocity.y = JUMP_VELOCITY
-		print(jumpsleft)
-	
+
 	
 	horizontal_velocity = velocity
 	horizontal_velocity.y = 0
