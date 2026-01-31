@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://ca41j4qxxutnu"]
+
+[ext_resource type="Texture2D" uid="uid://bsi745p6mqaf8" path="res://Textures/bazukaammmo.png" id="1_jb21x"]
+[ext_resource type="Script" uid="uid://dxu3g8yfkgquo" path="res://Scripts/Guns/RocketBullet.gd" id="1_m3mam"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jb21x"]
+radius = 0.11425781
+height = 0.23266602
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_m3mam"]
+radius = 1.772644
+
+[node name="Rocket" type="Area3D" unique_id=855930610]
+collision_layer = 0
+collision_mask = 6
+script = ExtResource("1_m3mam")
+speed = 10.0
+jumpForce = 10.0
+damage = 30.0
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=683321207]
+transform = Transform3D(0.5426614, -7.335029e-09, -0.8399515, 0.52007794, 0.7852521, 0.33600304, 0.6595737, -0.61917615, 0.42612603, 0, 0, 0)
+texture = ExtResource("1_jb21x")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1972825998]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.039382726, 0)
+shape = SubResource("CapsuleShape3D_jb21x")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=444290189]
+transform = Transform3D(6.19, 0, 0, 0, 6.19, 0, 0, 0, 6.19, 0, 0, 0)
+collision_layer = 0
+collision_mask = 7
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=2134811191]
+shape = SubResource("SphereShape3D_m3mam")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -37,7 +37,6 @@ func switch_weapon(direction: int):
 	# Handle negative wrapping (GDScript modulo can return negative)
 	if new_index < 0:
 		new_index = guns.size() - 1
-	print(new_index)		
 	_equip_gun(new_index)
 
 func _equip_gun(index: int):
@@ -56,4 +55,3 @@ func _equip_gun(index: int):
 		current_gun.visible = true
 		current_gun.set_process(true)
 		current_gun.enableGun()
-		print("Equipped: " + current_gun.gun_name)

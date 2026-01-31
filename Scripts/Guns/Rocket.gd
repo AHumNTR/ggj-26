@@ -1,18 +1,16 @@
 class_name RocketGun
 extends Gun
 
+@onready var animation: AnimatedSprite3D =$"AnimatedSprite3D"
 @export var rocket: PackedScene 
-
 func shoot():
 	if not can_shoot:
 		return
 	# Raycast logic example
-	if raycast.is_colliding():
-		var target = raycast.get_collider()
-		print(target)
-		if target.has_method("take_damage"):
-			target.take_damage(damage)
-			
+	var rocketInstance:Area3D= rocket.instantiate()
+	rocketInstance.global_transform=raycast.global_transform
+	get_tree().root.add_child(rocketInstance)
+	animation.play("default")
 	start_cooldown()
 
 func interact():
