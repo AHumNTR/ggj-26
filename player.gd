@@ -198,7 +198,7 @@ func _physics_process(delta):
 	for i in get_slide_collision_count():
 		var c = get_slide_collision(i)
 		
-		if c.get_collider() is EnemyAlt and not slide_timer.is_stopped():
-			var enemy:EnemyAlt = c.get_collider()
+		if c.get_collider() is Enemy and not slide_timer.is_stopped():
+			var enemy:Enemy = c.get_collider()
 			enemy.take_damage(0.0)
 			enemy.velocity += (enemy.global_position-(global_position+Vector3.DOWN*0.5)).normalized()*50.0

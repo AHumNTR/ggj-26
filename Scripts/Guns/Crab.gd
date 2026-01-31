@@ -2,7 +2,7 @@ class_name Crab
 extends Gun
 func _ready():
 	gun_name="Crab"
-	raycast=get_parent().raycast
+	super._ready()
 func shoot():
 	if not can_shoot:
 		return

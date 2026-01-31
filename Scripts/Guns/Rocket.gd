@@ -1,7 +1,8 @@
-class_name DefaultGun
+class_name RocketGun
 extends Gun
-func _ready() -> void:
-	raycast=get_parent().raycast
+
+@export var rocket: PackedScene 
+
 func shoot():
 	if not can_shoot:
 		return

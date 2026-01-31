@@ -14,7 +14,7 @@ func _on_timer_timeout() -> void:
 	global_position.z = randf_range(-100.0,100.0)
 	$Timer.wait_time = randf_range(1.0,3.0)
 	$Timer.start()
-	var n:EnemyAlt = enemies.pick_random().instantiate()
+	var n: Enemy = enemies.pick_random().instantiate()
 	n.position = position
 	n.player = player
 	get_parent().add_child(n)

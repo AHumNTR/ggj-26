@@ -1,7 +1,6 @@
 class_name DefaultGun
 extends Gun
-func _ready() -> void:
-	raycast=get_parent().raycast
+
 func shoot():
 	if not can_shoot:
 		return

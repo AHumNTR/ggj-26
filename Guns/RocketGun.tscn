@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cqggv3i006af7"]
+
+[ext_resource type="Script" uid="uid://j3hbvf17y2vg" path="res://Scripts/Guns/Rocket.gd" id="1_hlwfn"]
+[ext_resource type="Texture2D" uid="uid://bdxe8jd0twt2r" path="res://Textures/crab.png" id="2_4jtj7"]
+
+[node name="CrabGun" type="Node3D" unique_id=1597229924]
+script = ExtResource("1_hlwfn")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=978068606]
+transform = Transform3D(0.31, 0, 0, 0, 0.31, 0, 0, 0, 0.31, 0, 0, 0)
+texture = ExtResource("2_4jtj7")

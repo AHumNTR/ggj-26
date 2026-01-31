@@ -1,8 +1,24 @@
 extends CharacterBody3D
-@export var MaxHealth: int
-@onready var Health: int=MaxHealth
-func take_damage(damage):
-	Health-=damage
-	print(Health)
-	if(Health<=0):
-		free()
+class_name Enemy
+@export var player:CharacterBody3D
+
+var score_value := 0.0
+var hp := 20
+
+@warning_ignore("unused_parameter")
+func enemy_logic(delta):
+	pass
+
+func take_damage(damage:float):
+	hp-= damage
+	print(hp)
+	if hp <= 0.0:
+		die()
+
+func die():
+	queue_free()
+
+
+func _physics_process(delta: float) -> void:
+	enemy_logic(delta)
+	move_and_slide()

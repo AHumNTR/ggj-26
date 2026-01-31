@@ -1,4 +1,4 @@
-extends EnemyAlt
+extends Enemy
 class_name EnemyBasic
 var target_pos:=Vector3.ZERO
 

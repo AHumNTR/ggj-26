@@ -8,6 +8,8 @@ extends Node3D
 
 var can_shoot: bool = true
 
+func _ready() -> void:
+	raycast=get_parent().raycast
 # This simulates an abstract method
 func shoot():
 	push_error("Method 'shoot' must be overridden in child class: %s" % name)
