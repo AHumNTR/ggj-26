@@ -9,8 +9,7 @@ extends Node3D
 var can_shoot: bool = true
 
 func _ready() -> void:
-	print()
-# This simulates an abstract method
+	pass
 func shoot():
 	push_error("Method 'shoot' must be overridden in child class: %s" % name)
 
@@ -18,7 +17,7 @@ func shoot():
 func interact():
 	push_error("Method 'interact' must be overridden in child class: %s" % name)
 func enableGun():
-	print()
+	pass
 # Common helper function for cooldowns
 func disableGun():
-	print()
+	pass

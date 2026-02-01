@@ -6,12 +6,11 @@ extends Area3D
 @export var speed:float
 @export var damage:float
 func _ready() -> void:
-	var mindist=9999999
-	for enemy: Node3D in 	get_node("/root/world/enemies").get_children():
-		if(position.distance_to(enemy.position)<mindist):
-			mindist=position.distance_to(enemy.position)
+	var mindist:float=99999999
+	for enemy: Node3D in 	get_node("/root/world/enemies").get_children(false):
+		if(global_position.distance_squared_to(enemy.global_position)<mindist):
+			mindist=global_position.distance_squared_to(enemy.global_position)
 			closestEnemy=enemy
-	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

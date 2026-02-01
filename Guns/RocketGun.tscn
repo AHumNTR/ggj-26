@@ -2,48 +2,62 @@
 
 [ext_resource type="Script" uid="uid://j3hbvf17y2vg" path="res://Scripts/Guns/Rocket.gd" id="1_hlwfn"]
 [ext_resource type="PackedScene" uid="uid://ca41j4qxxutnu" path="res://Guns/Rocket.tscn" id="2_4jtj7"]
-[ext_resource type="Texture2D" uid="uid://dsurkciydsoaf" path="res://Textures/gun6.png" id="2_hlwfn"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4jtj7"]
-atlas = ExtResource("2_hlwfn")
-region = Rect2(0, 0, 160, 160)
+[ext_resource type="Texture2D" uid="uid://c2h2n1mjmliml" path="res://Textures/BazzokaGunAnim.png" id="3_4jtj7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6uj17"]
-atlas = ExtResource("2_hlwfn")
-region = Rect2(160, 0, 160, 160)
+atlas = ExtResource("3_4jtj7")
+region = Rect2(0, 0, 160, 160)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i4wl0"]
-atlas = ExtResource("2_hlwfn")
-region = Rect2(320, 0, 160, 160)
+atlas = ExtResource("3_4jtj7")
+region = Rect2(160, 0, 160, 160)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qidwe"]
-atlas = ExtResource("2_hlwfn")
-region = Rect2(480, 0, 160, 160)
+atlas = ExtResource("3_4jtj7")
+region = Rect2(320, 0, 160, 160)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_72yx3"]
-atlas = ExtResource("2_hlwfn")
+atlas = ExtResource("3_4jtj7")
+region = Rect2(480, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5eyfy"]
+atlas = ExtResource("3_4jtj7")
 region = Rect2(640, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r86ku"]
+atlas = ExtResource("3_4jtj7")
+region = Rect2(800, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4iw40"]
+atlas = ExtResource("3_4jtj7")
+region = Rect2(960, 0, 160, 160)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5eyfy"]
 animations = [{
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4jtj7")
-}, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_6uj17")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_i4wl0")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_qidwe")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_72yx3")
 }, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4jtj7")
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_5eyfy")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_r86ku")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_4iw40")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_6uj17")
 }],
 "loop": false,
 "name": &"default",
@@ -58,6 +72,5 @@ rocket = ExtResource("2_4jtj7")
 billboard = 1
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_5eyfy")
-frame = 1
-frame_progress = 0.058143504
-speed_scale = 3.0
+frame = 7
+frame_progress = 1.0

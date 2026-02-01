@@ -10,14 +10,11 @@ func shoot():
 		return
 	
 	var bocuk:Node3D= bocukScene.instantiate()
-	get_tree().root.add_child(bocuk)
 	bocuk.global_transform=raycast.global_transform
+	get_tree().root.add_child(bocuk)
 
 	sprite.play("default")
 	start_cooldown()
-func interact():
-	# Example: Inspect the weapon or switch fire modes
-	print("Inng " + gun_name + "... It looks shiny.")
 func start_cooldown():
 	can_shoot = false
 	await get_tree().create_timer(fire_rate).timeout

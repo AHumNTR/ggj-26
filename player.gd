@@ -45,7 +45,18 @@ var horizontal_velocity = velocity
 
 var active_mask:int = 0 #change object with custom mask class
 @export var mask_sprites:Array[Texture2D]
-
+@export var mask_colors: Array[Color]
+@export var maskTimerMax: float
+@onready var nextMask:int =1
+@onready var nextMaskSprite = $ui/masknext/masksprite
+var stylebox
+var masktimer:float=0
+func select_next_mask(next: int):
+	nextMask=next
+	masktimer=maskTimerMax
+	stylebox.bg_color = mask_colors[nextMask]
+	nextMaskSprite.visible=true
+	nextMaskSprite.texture=mask_sprites[nextMask]
 
 func skill_logic():
 	speed_scale = 1.0
@@ -155,17 +166,15 @@ func gun_sway(delta):
 func _process(delta: float) -> void:
 	$ui/hpbar.scale = (1.0 + clamp(smoothstep(0.0,20.0,abs($ui/hpbar.value-hp)),0.0,1.0))*Vector2.ONE
 	$ui/hpbar.value = lerp($ui/hpbar.value,hp,5.0*delta)
+	$ui/maskselectbar.value = masktimer*100	
+	if(masktimer>0):masktimer-=delta
+	else: nextMaskSprite.visible=false
+	if Input.is_action_just_pressed("equip") and masktimer>0:
+		active_mask=nextMask
+		$head/hand._equip_gun(nextMask)
+		$ui/mask/masksprite.texture = mask_sprites[active_mask]
 	
 func _physics_process(delta):
-	if $head/cam/MaskRaycast.is_colliding():
-		var col:Area3D = $head/cam/MaskRaycast.get_collider()
-		if col is Mask and Input.is_action_just_pressed("equip"):
-			var c:Mask = col
-			active_mask = c.type
-			print(active_mask)
-			$head/hand._equip_gun(active_mask)
-			$ui/mask/masksprite.texture = c.mask_sprites[active_mask]
-			c.queue_free()
 	skill_logic()
 	gun_sway(delta)
 	
@@ -222,5 +231,9 @@ func take_damage(damage:float)->void:
 	if $inv_frames.is_stopped():
 		$inv_frames.start()
 		hp -= damage
-		print("damage taken ",damage)
 	return
+
+func _ready() -> void:
+	stylebox= StyleBoxFlat.new()
+	$ui/maskselectbar.add_theme_stylebox_override("fill", stylebox)
+	stylebox.bg_color = Color("ff0000")

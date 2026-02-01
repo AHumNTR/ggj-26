@@ -16,7 +16,6 @@ func enemy_logic(delta):
 
 func take_damage(damage:float):
 	hp-= damage
-	print(hp)
 	if hp <= 0.0:
 		die()
 
@@ -24,10 +23,7 @@ func die():
 	
 	Waves.enemy_killed_this_wave+=1
 	print(Waves.enemy_killed_this_wave,"/",Waves.get_enemy_amount())
-	var m:Mask = MASK.instantiate()
-	m.type = type
-	m.position=global_position
-	get_parent().add_child(m)
+	($/root/world/player as Player).select_next_mask(type)
 	queue_free()
 
 

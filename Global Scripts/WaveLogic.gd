@@ -10,5 +10,4 @@ func get_spawn_period():
 
 func next_wave():
 	wave+=1
-	print("Next Wave: ",wave)
 	enemy_killed_this_wave = 0

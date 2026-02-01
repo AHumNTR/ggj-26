@@ -13,9 +13,6 @@ func shoot():
 	animation.play("default")
 	start_cooldown()
 
-func interact():
-	# Example: Inspect the weapon or switch fire modes
-	print("Inspecting " + gun_name + "... It looks shiny.")
 func start_cooldown():
 	can_shoot = false
 	await get_tree().create_timer(fire_rate).timeout

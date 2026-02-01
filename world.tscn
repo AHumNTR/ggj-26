@@ -2,15 +2,25 @@
 
 [ext_resource type="PackedScene" uid="uid://bmqfdbicayqrx" path="res://player.tscn" id="1_f3sb7"]
 [ext_resource type="Texture2D" uid="uid://p4w4qw7byaic" path="res://Textures/ground_tex.png" id="2_tlwt5"]
-[ext_resource type="Script" uid="uid://caxlnol7dvrkd" path="res://globalui.gd" id="4_036b0"]
+[ext_resource type="Script" path="res://globalui.gd" id="4_036b0"]
 [ext_resource type="PackedScene" uid="uid://dghfmmaacw68i" path="res://enemy_spawner.tscn" id="4_aqk2v"]
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_tlwt5"]
+sky_top_color = Color(1, 0.31377584, 0.2803165, 1)
+sky_horizon_color = Color(1, 0.3137255, 0.2784314, 1)
+ground_bottom_color = Color(1, 0.3137255, 0.2784314, 1)
+ground_horizon_color = Color(1, 0.3137255, 0.2784314, 1)
+
+[sub_resource type="Sky" id="Sky_aqk2v"]
+sky_material = SubResource("ProceduralSkyMaterial_tlwt5")
+
 [sub_resource type="Environment" id="Environment_tlwt5"]
-background_mode = 1
+background_mode = 2
 background_color = Color(0.8659264, 0, 0.1953721, 1)
+sky = SubResource("Sky_aqk2v")
 ambient_light_source = 2
 ambient_light_color = Color(1, 1, 1, 1)
-tonemap_mode = 2
+ambient_light_energy = 3.0
 glow_enabled = true
 volumetric_fog_density = 0.01
 volumetric_fog_albedo = Color(1, 0.42352942, 0.39607844, 1)
@@ -41,11 +51,12 @@ texture_filter = 0
 environment = SubResource("Environment_tlwt5")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1709383703]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5, 0)
 material_override = SubResource("StandardMaterial3D_tlwt5")
 use_collision = true
 collision_layer = 4
 collision_mask = 0
-size = Vector3(200, 1, 200)
+size = Vector3(200, 3, 200)
 
 [node name="player" parent="." unique_id=1195508512 instance=ExtResource("1_f3sb7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.365802, 0)
@@ -74,3 +85,41 @@ offset_top = 53.0
 offset_right = 128.0
 offset_bottom = 80.0
 grow_horizontal = 2
+
+[node name="Node3D" type="Node3D" parent="." unique_id=1890054756]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Node3D" unique_id=698107640]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.521448, 2.4594488, 2.8995438)
+use_collision = true
+collision_layer = 4
+collision_mask = 7
+size = Vector3(8.169434, 4.8819427, 9.149963)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Node3D" unique_id=76181196]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.8403473, 10.5694685, -6.2398605)
+use_collision = true
+collision_layer = 4
+collision_mask = 7
+size = Vector3(8.169434, 21.101982, 9.149963)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Node3D" unique_id=659944377]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7543516, 4.9188976, 29.967468)
+use_collision = true
+collision_layer = 4
+collision_mask = 7
+size = Vector3(8.169434, 4.8819427, 9.149963)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Node3D" unique_id=237991588]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 0.75, 3)
+use_collision = true
+collision_layer = 4
+collision_mask = 7
+radius = 8.0
+height = 3.5
+
+[node name="CSGTorus3D" type="CSGTorus3D" parent="Node3D" unique_id=837818158]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, 22)
+use_collision = true
+collision_layer = 4
+collision_mask = 7
+outer_radius = 15.0

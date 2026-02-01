@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://b6er8tj3dt76k"]
+
+[ext_resource type="Script" uid="uid://dusk3bhthvajs" path="res://Scripts/Guns/Electro.gd" id="1_e245d"]
+[ext_resource type="Texture2D" uid="uid://ciuwsvra7vvif" path="res://Textures/ElectroGunAnim.png" id="2_e245d"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lv0sl"]
+atlas = ExtResource("2_e245d")
+region = Rect2(0, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_prceu"]
+atlas = ExtResource("2_e245d")
+region = Rect2(160, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u3bee"]
+atlas = ExtResource("2_e245d")
+region = Rect2(320, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6gr8t"]
+atlas = ExtResource("2_e245d")
+region = Rect2(480, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c565p"]
+atlas = ExtResource("2_e245d")
+region = Rect2(640, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eb51o"]
+atlas = ExtResource("2_e245d")
+region = Rect2(800, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fh87l"]
+atlas = ExtResource("2_e245d")
+region = Rect2(960, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fyje8"]
+atlas = ExtResource("2_e245d")
+region = Rect2(1120, 0, 160, 160)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4jerd"]
+animations = [{
+"frames": [{
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_lv0sl")
+}, {
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_prceu")
+}, {
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_u3bee")
+}, {
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_6gr8t")
+}, {
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_c565p")
+}, {
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_eb51o")
+}, {
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_fh87l")
+}, {
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_fyje8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Electro" type="Node3D" unique_id=1597229924]
+script = ExtResource("1_e245d")
+damage = 50
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=863509925]
+sprite_frames = SubResource("SpriteFrames_4jerd")
+frame_progress = 0.910938

@@ -15,7 +15,6 @@ func _on_body_entered(body: Node3D) -> void:
 
 		if(kill is Player):
 			var p: Player=kill
-			print("hell")
 			p.velocity+=jumpForce*(p.position-position).normalized()/(p.position-position).length()
 		elif(kill.has_method("take_damage")):
 				

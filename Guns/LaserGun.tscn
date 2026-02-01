@@ -1,56 +1,103 @@
-[gd_scene format=3 uid="uid://dssurk6tsuvt"]
+[gd_scene format=3 uid="uid://bybilnhnp8se5"]
 
-[ext_resource type="Script" uid="uid://dwu6yht2m71w0" path="res://Scripts/Guns/Crab.gd" id="1_4vju6"]
-[ext_resource type="Texture2D" uid="uid://cx6t0c3qw267e" path="res://Textures/CrabHandAnim.png" id="2_jbin7"]
+[ext_resource type="Script" uid="uid://dga0dc6dgbs6r" path="res://Scripts/Guns/Laser.gd" id="1_4vju6"]
+[ext_resource type="Texture2D" uid="uid://bd5d2o4g7cr0p" path="res://Textures/ChargeGunAnim.png" id="2_0k70d"]
+[ext_resource type="Texture2D" uid="uid://dnpdydp3qg42i" path="res://Textures/gun3withnobeam.png" id="2_4vju6"]
+[ext_resource type="Texture2D" uid="uid://ci5ls6rg312is" path="res://Textures/gun3beam2.png" id="2_jbin7"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rripp"]
-atlas = ExtResource("2_jbin7")
-region = Rect2(0, 0, 224, 160)
+[sub_resource type="AtlasTexture" id="AtlasTexture_jbin7"]
+atlas = ExtResource("2_4vju6")
+region = Rect2(0, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_doaod"]
-atlas = ExtResource("2_jbin7")
-region = Rect2(224, 0, 224, 160)
+[sub_resource type="AtlasTexture" id="AtlasTexture_0k70d"]
+atlas = ExtResource("2_4vju6")
+region = Rect2(128, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2qtkw"]
-atlas = ExtResource("2_jbin7")
-region = Rect2(448, 0, 224, 160)
+[sub_resource type="AtlasTexture" id="AtlasTexture_6b2km"]
+atlas = ExtResource("2_4vju6")
+region = Rect2(256, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_mvler"]
-atlas = ExtResource("2_jbin7")
-region = Rect2(672, 0, 224, 160)
+[sub_resource type="AtlasTexture" id="AtlasTexture_3p2lx"]
+atlas = ExtResource("2_4vju6")
+region = Rect2(384, 0, 128, 128)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4ur0h"]
 animations = [{
 "frames": [{
-"duration": 0.3,
-"texture": SubResource("AtlasTexture_rripp")
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jbin7")
 }, {
-"duration": 0.3,
-"texture": SubResource("AtlasTexture_doaod")
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0k70d")
 }, {
-"duration": 0.3,
-"texture": SubResource("AtlasTexture_2qtkw")
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6b2km")
 }, {
-"duration": 0.3,
-"texture": SubResource("AtlasTexture_mvler")
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3p2lx")
 }, {
-"duration": 0.3,
-"texture": SubResource("AtlasTexture_rripp")
+"duration": 1.0,
+"texture": ExtResource("2_jbin7")
 }],
 "loop": false,
 "name": &"default",
 "speed": 5.0
 }]
 
-[node name="CrabGun" type="Node3D" unique_id=1597229924]
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ipng"]
+atlas = ExtResource("2_0k70d")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hq8lo"]
+atlas = ExtResource("2_0k70d")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nqm3l"]
+atlas = ExtResource("2_0k70d")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jkpwe"]
+atlas = ExtResource("2_0k70d")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0k70d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ipng")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hq8lo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nqm3l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jkpwe")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="LaserGun" type="Node3D" unique_id=1597229924]
 script = ExtResource("1_4vju6")
-gun_name = null
-fire_rate = null
 damage = 50
 
-[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=1043679874]
+[node name="idleanim" type="AnimatedSprite3D" parent="." unique_id=1043679874]
 transform = Transform3D(0.295, 0, 0, 0, 0.295, 0, 0, 0, 0.295, 0, 0.23553845, 0)
+visible = false
 billboard = 1
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_4ur0h")
-frame_progress = 0.6060624
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=595627723]
+transform = Transform3D(0.295, 0, 0, 0, 0.295, 0, 0, 0, 0.295, -0.084824935, 0.1907137, -0.09252173)
+billboard = 1
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_0k70d")
+frame = 3
+frame_progress = 1.0
+
+[connection signal="animation_finished" from="idleanim" to="." method="_on_animated_sprite_3d_animation_finished"]
+[connection signal="animation_finished" from="AnimatedSprite3D" to="." method="_on_animated_sprite_3d_animation_finished"]

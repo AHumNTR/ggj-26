@@ -31,7 +31,7 @@ func enemy_logic(delta):
 				$attack_cooldown.start()
 				var p:ProjEnemy = proj_scene.instantiate()
 				p.position = global_position
-				get_parent().add_child(p)
+				get_tree().root.add_child(p)
 				p.look_at(player.global_position)
 			
 

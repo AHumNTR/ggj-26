@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bd5d2o4g7cr0p"
-path.s3tc="res://.godot/imported/ChargeGunAnim.png-995ed29edd00ccb9038bbd1646cf4865.s3tc.ctex"
+uid="uid://ciuwsvra7vvif"
+path.s3tc="res://.godot/imported/ElectroGunAnim.png-7afd8f0abc294bb54038c272eeef3a03.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Textures/ChargeGunAnim.png"
-dest_files=["res://.godot/imported/ChargeGunAnim.png-995ed29edd00ccb9038bbd1646cf4865.s3tc.ctex"]
+source_file="res://Textures/ElectroGunAnim.png"
+dest_files=["res://.godot/imported/ElectroGunAnim.png-7afd8f0abc294bb54038c272eeef3a03.s3tc.ctex"]
 
 [params]
 
