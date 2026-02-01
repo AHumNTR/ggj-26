@@ -243,7 +243,7 @@ func _physics_process(delta):
 			else:
 				if slide_damage>0.0:
 					enemy.take_damage(slide_damage)
-				enemy.velocity += (enemy.global_position-(global_position+Vector3.DOWN*0.5)).normalized()*50.0
+				enemy.velocity += (enemy.global_position-(global_position+Vector3.DOWN*0.5)).normalized()*5.0
 
 func take_damage(damage:float)->void:
 	if $inv_frames.is_stopped():

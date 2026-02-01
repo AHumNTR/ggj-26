@@ -2,7 +2,7 @@ class_name Laser
 extends Gun
 @onready var sprite: AnimatedSprite3D= $"AnimatedSprite3D"
 @export var shapeCast:ShapeCast3D
-@export var particleScene:PackedScene
+
 
 const LASEREFFECT = preload("uid://cj3jl6yf5s6vd")
 
@@ -18,9 +18,6 @@ func shoot():
 
 func _on_animated_sprite_3d_animation_finished() -> void:
 
-	var particle:GPUParticles3D= particleScene.instantiate()
-	particle.global_position=global_position
-	get_tree().root.add_child(particle)
 	var count = shapeCast.get_collision_count()
 
 	for i in range(count):

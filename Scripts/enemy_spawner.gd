@@ -32,6 +32,7 @@ func _on_timer_timeout() -> void:
 	
 	spawn_pos.y = 1.2
 	global_position=spawn_pos
+
 	$Timer.wait_time = clamp(randf_range(Waves.get_spawn_period()-1.0,Waves.get_spawn_period()+1.0),0.01,INF) 
 	$Timer.start()
 	var n: Enemy = enemies.pick_random().instantiate()

@@ -36,8 +36,8 @@ func enemy_logic(delta):
 		Attacking:
 			$Sprite3D.play("attack")
 			damage = 20.0
-			velocity.x = 50.0*dash_dir.x
-			velocity.z = 50.0*dash_dir.z
+			velocity.x = 30.0*dash_dir.x
+			velocity.z = 30.0*dash_dir.z
 
 
 
