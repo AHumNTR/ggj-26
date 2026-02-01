@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b6er8tj3dt76k"]
 
-[ext_resource type="Script" uid="uid://dusk3bhthvajs" path="res://Scripts/Guns/Electro.gd" id="1_e245d"]
+[ext_resource type="Script" path="res://Scripts/Guns/Electro.gd" id="1_e245d"]
 [ext_resource type="Texture2D" uid="uid://ciuwsvra7vvif" path="res://Textures/ElectroGunAnim.png" id="2_e245d"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lv0sl"]

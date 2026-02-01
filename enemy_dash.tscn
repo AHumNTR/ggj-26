@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://1pue02yjr725" path="res://Textures/redghostAnim.png" id="2_gi6tg"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_g2x43"]
-height = 3.3772354
+height = 3.0870552
 radius = 1.0283203
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i4g6g"]
@@ -57,13 +57,13 @@ animations = [{
 
 [node name="EnemyDash" type="CharacterBody3D" unique_id=1126585756]
 collision_layer = 2
-collision_mask = 7
+collision_mask = 5
 script = ExtResource("1_rkdyc")
 type = 5
 metadata/_custom_type_script = "uid://chf41ybnn0pjv"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=424920587]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0013427734, 0.20643234, 0.004211426)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0013427734, 0.35152245, 0.004211426)
 shape = SubResource("CylinderShape3D_g2x43")
 
 [node name="Sprite3D" type="AnimatedSprite3D" parent="." unique_id=641626010]

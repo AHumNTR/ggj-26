@@ -4,6 +4,7 @@ class_name Enemy
 @onready var navagant:NavigationAgent3D=$NavigationAgent3D
 const MASK = preload("uid://f5scy1na7fgd")
 var target_pos:=Vector3.ZERO
+var inv = false
 
 @export var type := 1 #1 is small spider, 2 is floater, 3 is cube guy might add enum later
 var score_value := 0.0
@@ -15,9 +16,17 @@ func enemy_logic(delta):
 	pass
 
 func take_damage(damage:float):
+	if inv:
+		return
 	hp-= damage
 	if hp <= 0.0:
 		die()
+		return
+	$Sprite3D.modulate = Color(18.892, 10.582, 9.384, 1.0)
+	inv = true
+	await get_tree().create_timer(0.5).timeout
+	$Sprite3D.modulate = Color.WHITE
+	inv = false
 
 func die():
 	

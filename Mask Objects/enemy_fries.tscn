@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://wphjcamjd2dj"]
+[gd_scene format=3 uid="uid://c8l6sub3q1007"]
 
 [ext_resource type="Script" uid="uid://bgh27jk7m16jy" path="res://Scripts/EnemyDash.gd" id="1_2p5s4"]
 [ext_resource type="Texture2D" uid="uid://1pue02yjr725" path="res://Textures/redghostAnim.png" id="2_wg5tc"]

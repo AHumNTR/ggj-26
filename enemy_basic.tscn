@@ -51,7 +51,7 @@ animations = [{
 
 [node name="EnemyBasic" type="CharacterBody3D" unique_id=1126585756]
 collision_layer = 2
-collision_mask = 7
+collision_mask = 5
 script = ExtResource("1_20uc5")
 metadata/_custom_type_script = "uid://chf41ybnn0pjv"
 

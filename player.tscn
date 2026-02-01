@@ -200,6 +200,7 @@ visible = false
 raycast = NodePath("../../cam/RocketRaycast")
 
 [node name="LaserGun" parent="head/hand" unique_id=1267632268 node_paths=PackedStringArray("shapeCast", "raycast") instance=ExtResource("11_ivps1")]
+visible = false
 shapeCast = NodePath("../../cam/ShapeCast3D")
 gun_name = "Laser Gun"
 raycast = NodePath("../../cam/DefaultRaycast")

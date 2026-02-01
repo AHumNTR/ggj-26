@@ -11,7 +11,8 @@ func enemy_logic(delta):
 	velocity.z = lerp(velocity.z,(target_pos-global_position).normalized().z*5.0,20.0*delta)  
 	if not is_on_floor():
 		velocity += get_gravity()
-
+	if target_pos.y - global_position.y > 2.0:
+		velocity += Vector3.UP*2.0*delta
 
 func _on_timer_timeout() -> void:
 	$Timer.wait_time = randf_range(5.0,10.0)

@@ -72,7 +72,6 @@ func skill_logic():
 		2:
 			maxjumpamount = 2
 			speed_scale = 0.75
-			maxjumpamount = 2
 		3:
 			pass #idk
 		4:

@@ -2,6 +2,7 @@ extends Node3D
 
 @export var enemies:Array[PackedScene]
 @export var player:CharacterBody3D
+@export var spawnboxes:Array[CSGBox3D]
 var enemy_spawned_this_wave := 0
 
 # Called when the node enters the scene tree for the first time.
@@ -21,16 +22,21 @@ func _on_timer_timeout() -> void:
 		$Timer.wait_time = 2.0
 		$Timer.start()
 		return
+	var spawn_pos = Vector3(0.0,1.0,0.0)
 	print("Spawning: ",enemy_spawned_this_wave+1,"/",Waves.get_enemy_amount())
-	global_position.y = 1.0
-	global_position.x = player.global_position.x + randf_range(-60.0,60.0)
-	global_position.z = player.global_position.y + randf_range(-60.0,60.0)
-	global_position.x = clamp(global_position.x,-180.0,180.0)
-	global_position.z = clamp(global_position.x,-180.0,180.0)
+	var reg:CSGBox3D = spawnboxes.pick_random()
+	
+	spawn_pos.x=randf_range(-reg.size.x/2.0,reg.size.x/2.0)
+	spawn_pos.z=randf_range(-reg.size.z/2.0,reg.size.z/2.0)
+	
+	
+	spawn_pos.y = 1.2
+	global_position=spawn_pos
 	$Timer.wait_time = clamp(randf_range(Waves.get_spawn_period()-1.0,Waves.get_spawn_period()+1.0),0.01,INF) 
 	$Timer.start()
 	var n: Enemy = enemies.pick_random().instantiate()
-	n.position = position
+	n.position = spawn_pos
 	n.player = player
+	n.speed += randfn(-1.0,1.0)
 	get_node("/root/world/enemies").add_child(n)
 	enemy_spawned_this_wave+=1
