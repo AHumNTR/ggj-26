@@ -3,17 +3,28 @@
 [ext_resource type="Script" uid="uid://bdnhiq4wmshev" path="res://player.gd" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://chsy5bxpigubc" path="res://Scripts/GunController.gd" id="2_i3pqv"]
 [ext_resource type="PackedScene" uid="uid://cglxipv4hr2gn" path="res://Guns/DefaultGun.tscn" id="2_onrkg"]
+[ext_resource type="Texture2D" uid="uid://bsvf653lwvkok" path="res://Textures/item_UI_PNG.png" id="3_urp6f"]
 [ext_resource type="Texture2D" uid="uid://cjs2bpgx5cpln" path="res://Textures/Smoke.png" id="4_hqtel"]
-[ext_resource type="Texture2D" uid="uid://cqmw3tfxddm3t" path="res://Textures/fireball.png" id="4_nvl01"]
-[ext_resource type="Texture2D" uid="uid://4y40e1ouxtbf" path="res://icon.svg" id="5_ivps1"]
 [ext_resource type="Texture2D" uid="uid://dyus4do7kvxeb" path="res://Textures/maskplaceholder.png" id="5_sweqy"]
 [ext_resource type="PackedScene" uid="uid://dx6s3ry65hyqn" path="res://Guns/CrabGun.tscn" id="6_2hs0m"]
-[ext_resource type="Texture2D" uid="uid://ci5ls6rg312is" path="res://Textures/gun3beam2.png" id="6_urp6f"]
 [ext_resource type="PackedScene" uid="uid://cqggv3i006af7" path="res://Guns/RocketGun.tscn" id="7_1jxqw"]
 [ext_resource type="PackedScene" uid="uid://cd5iljw3mpsge" path="res://Guns/BugGun.tscn" id="8_b26j0"]
 [ext_resource type="QuadMesh" uid="uid://byqvlclc8terb" path="res://Particles/dustpass.tres" id="8_dw050"]
-[ext_resource type="PackedScene" uid="uid://bybilnhnp8se5" path="res://Guns/LaserGun.tscn" id="11_ivps1"]
+[ext_resource type="PackedScene" uid="uid://dssurk6tsuvt" path="res://Guns/LaserGun.tscn" id="11_ivps1"]
 [ext_resource type="PackedScene" uid="uid://b6er8tj3dt76k" path="res://Guns/ElectroGun.tscn" id="13_bwjto"]
+[ext_resource type="Texture2D" uid="uid://7ab2cbuk7mys" path="res://Textures/circle.png" id="15_606se"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bwjto"]
+atlas = ExtResource("3_urp6f")
+region = Rect2(95, 0, 34, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_606se"]
+atlas = ExtResource("3_urp6f")
+region = Rect2(129, 0, 31, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u1c27"]
+atlas = ExtResource("3_urp6f")
+region = Rect2(0, 0, 33, 32)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_onrkg"]
 
@@ -149,16 +160,13 @@ corner_radius_bottom_left = 4
 shadow_color = Color(0.31658643, 2.1658838e-07, 1.5642495e-07, 0.6)
 shadow_size = 2
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_urp6f"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
 [node name="player" type="CharacterBody3D" unique_id=1195508512 node_paths=PackedStringArray("head", "cam", "hand")]
 collision_mask = 7
 script = ExtResource("1_4flbx")
 head = NodePath("head")
 cam = NodePath("head/cam")
 hand = NodePath("head/hand")
-mask_sprites = Array[Texture2D]([ExtResource("4_hqtel"), ExtResource("5_sweqy"), ExtResource("4_nvl01"), ExtResource("5_ivps1"), ExtResource("6_urp6f")])
+mask_sprites = Array[Texture2D]([ExtResource("4_hqtel"), SubResource("AtlasTexture_bwjto"), SubResource("AtlasTexture_606se"), SubResource("AtlasTexture_u1c27"), ExtResource("3_urp6f"), ExtResource("3_urp6f")])
 mask_colors = Array[Color]([Color(0.8156863, 0.68235296, 0.6784314, 1), Color(1, 0, 0, 1), Color(0.15686275, 0.23137255, 1, 1), Color(1, 1, 1, 1), Color(0, 1, 0, 1), Color(1, 1, 0, 1)])
 maskTimerMax = 3.0
 
@@ -204,20 +212,14 @@ raycast = NodePath("../cam/DefaultRaycast")
 visible = false
 raycast = NodePath("../../cam/DefaultRaycast")
 
-[node name="CrabGun" parent="head/hand" unique_id=1892218956 node_paths=PackedStringArray("raycast") instance=ExtResource("6_2hs0m")]
+[node name="BugGun" parent="head/hand" unique_id=1458374646 node_paths=PackedStringArray("raycast") instance=ExtResource("8_b26j0")]
 visible = false
-gun_name = "Base Gun"
-fire_rate = 0.5
-raycast = NodePath("../../cam/MeleRaycast")
+raycast = NodePath("../../cam/DefaultRaycast")
 
 [node name="RocketGun" parent="head/hand" unique_id=688959502 node_paths=PackedStringArray("raycast") instance=ExtResource("7_1jxqw")]
 transform = Transform3D(0.45, 0, 0, 0, 0.45, 0, 0, 0, 0.45, 0, 0, 0)
 visible = false
 raycast = NodePath("../../cam/RocketRaycast")
-
-[node name="BugGun" parent="head/hand" unique_id=1458374646 node_paths=PackedStringArray("raycast") instance=ExtResource("8_b26j0")]
-visible = false
-raycast = NodePath("../../cam/DefaultRaycast")
 
 [node name="LaserGun" parent="head/hand" unique_id=1267632268 node_paths=PackedStringArray("shapeCast", "raycast") instance=ExtResource("11_ivps1")]
 visible = false
@@ -226,6 +228,17 @@ gun_name = "Laser Gun"
 raycast = NodePath("../../cam/DefaultRaycast")
 
 [node name="Electro" parent="head/hand" unique_id=1394510406 instance=ExtResource("13_bwjto")]
+visible = false
+
+[node name="CrabGun" parent="head/hand" unique_id=1892218956 node_paths=PackedStringArray("raycast") instance=ExtResource("6_2hs0m")]
+visible = false
+gun_name = "Base Gun"
+fire_rate = 0.5
+raycast = NodePath("../../cam/MeleRaycast")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="head/hand" unique_id=959393628]
+visible = false
+size = Vector3(0.11, 0.1, 0.1)
 
 [node name="slide_timer" type="Timer" parent="." unique_id=991605396]
 wait_time = 0.6
@@ -258,8 +271,11 @@ offset_right = 112.0
 offset_bottom = -88.0
 grow_vertical = 0
 
-[node name="masksprite" type="Sprite2D" parent="ui/mask" unique_id=1484945954]
+[node name="masksprite" type="TextureRect" parent="ui/mask" unique_id=1923263218]
+layout_mode = 0
 scale = Vector2(2, 2)
+mouse_filter = 2
+stretch_mode = 3
 
 [node name="cross_place" type="Control" parent="ui" unique_id=1560898905]
 layout_mode = 3
@@ -295,19 +311,19 @@ theme_override_styles/background = SubResource("StyleBoxFlat_2hs0m")
 theme_override_styles/fill = SubResource("StyleBoxFlat_1jxqw")
 value = 100.0
 
-[node name="maskselectbar" type="ProgressBar" parent="ui" unique_id=1996309430]
+[node name="maskselectbar" type="TextureProgressBar" parent="ui" unique_id=496589758]
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 47.0
-offset_top = 141.17001
-offset_right = 303.0
-offset_bottom = 168.17001
+offset_left = 56.0
+offset_top = 140.0
+offset_right = 312.0
+offset_bottom = 204.0
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
-theme_override_styles/background = SubResource("StyleBoxFlat_urp6f")
-value = 47.63
-show_percentage = false
+value = 48.0
+fill_mode = 4
+texture_progress = ExtResource("15_606se")
 metadata/_edit_use_anchors_ = true
 
 [node name="masknext" type="Control" parent="ui" unique_id=64098974]
@@ -321,10 +337,24 @@ offset_right = 22.28
 offset_bottom = 154.44
 grow_vertical = 2
 
-[node name="masksprite" type="Sprite2D" parent="ui/masknext" unique_id=55997751]
-visible = false
-scale = Vector2(0.88, 0.88)
+[node name="masksprite" type="TextureRect" parent="ui/masknext" unique_id=2057164821]
+layout_mode = 0
+offset_left = 49.72
+offset_top = -86.44
+offset_right = 81.72
+offset_bottom = -54.440002
+scale = Vector2(1.5, 1.5)
+mouse_filter = 2
 texture = ExtResource("5_sweqy")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="ui/masknext" unique_id=927883716]
+layout_mode = 0
+offset_left = -6.2800007
+offset_top = -46.440002
+offset_right = 209.72
+offset_bottom = -23.440002
+text = "Press [E] to accept the mask"
 
 [node name="inv_frames" type="Timer" parent="." unique_id=258506999]
 wait_time = 0.2

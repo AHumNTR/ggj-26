@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dmi21s7gmj33s" path="res://Textures/BugGhost.png" id="2_nthg2"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_3l4wj"]
-height = 3.0200882
+height = 3.520647
 radius = 1.4907227
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2eiu5"]
@@ -38,7 +38,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("body:position")
+tracks/0/path = NodePath("Node3D/body:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -50,7 +50,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("head:position")
+tracks/1/path = NodePath("Node3D/head:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -62,7 +62,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("hand1:position")
+tracks/2/path = NodePath("Node3D/hand1:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -74,7 +74,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("hand2:position")
+tracks/3/path = NodePath("Node3D/hand2:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -92,7 +92,7 @@ step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("body:position")
+tracks/0/path = NodePath("Node3D/body:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -104,7 +104,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("head:position")
+tracks/1/path = NodePath("Node3D/head:position")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -116,7 +116,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("hand1:position")
+tracks/2/path = NodePath("Node3D/hand1:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -128,7 +128,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("hand2:position")
+tracks/3/path = NodePath("Node3D/hand2:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -154,7 +154,7 @@ speed = 3.0
 metadata/_custom_type_script = "uid://chf41ybnn0pjv"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=424920587]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05978012, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2809019, 0)
 shape = SubResource("CylinderShape3D_3l4wj")
 
 [node name="Sprite3D" type="AnimatedSprite3D" parent="." unique_id=641626010]
@@ -173,7 +173,10 @@ autostart = true
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=466756327]
 libraries/ = SubResource("AnimationLibrary_mlwup")
 
-[node name="body" type="Sprite3D" parent="." unique_id=834156936]
+[node name="Node3D" type="Node3D" parent="." unique_id=2036297384]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9951997, 0)
+
+[node name="body" type="Sprite3D" parent="Node3D" unique_id=834156936]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0038366318, 0.2880972, 0)
 pixel_size = 0.04
 billboard = 2
@@ -182,7 +185,7 @@ texture = ExtResource("2_10nij")
 region_enabled = true
 region_rect = Rect2(11, 1, 110, 95)
 
-[node name="hand1" type="Sprite3D" parent="." unique_id=1645226801]
+[node name="hand1" type="Sprite3D" parent="Node3D" unique_id=1645226801]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.147878, 0.1440486, 0)
 sorting_offset = 1.0
 pixel_size = 0.04
@@ -192,7 +195,7 @@ texture = ExtResource("2_10nij")
 region_enabled = true
 region_rect = Rect2(1, 92, 40, 36)
 
-[node name="hand2" type="Sprite3D" parent="." unique_id=1157366535]
+[node name="hand2" type="Sprite3D" parent="Node3D" unique_id=1157366535]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.278983, 1.2864802, 0)
 sorting_offset = 1.0
 pixel_size = 0.04
@@ -202,7 +205,7 @@ texture = ExtResource("2_10nij")
 region_enabled = true
 region_rect = Rect2(44, 98, 38, 30)
 
-[node name="head" type="Sprite3D" parent="." unique_id=304693430]
+[node name="head" type="Sprite3D" parent="Node3D" unique_id=304693430]
 sorting_offset = 0.1
 pixel_size = 0.04
 billboard = 2
@@ -211,7 +214,9 @@ texture = ExtResource("2_10nij")
 region_enabled = true
 region_rect = Rect2(95, 99, 33, 29)
 
-[node name="Node3D" type="Node3D" parent="." unique_id=2036297384]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2577355, 0, 0)
+[node name="RayCast3D" type="RayCast3D" parent="." unique_id=315854566]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.42735863, 0)
+target_position = Vector3(0, -5, 0)
+collision_mask = 4
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bybilnhnp8se5"]
+[gd_scene format=3 uid="uid://dssurk6tsuvt"]
 
 [ext_resource type="Script" uid="uid://dga0dc6dgbs6r" path="res://Scripts/Guns/Laser.gd" id="1_4vju6"]
 [ext_resource type="Texture2D" uid="uid://dnpdydp3qg42i" path="res://Textures/gun3withnobeam.png" id="2_4vju6"]

@@ -42,6 +42,8 @@ var maxjumpamount := 2
 
 var horizontal_velocity = velocity
 
+var slide_damage = 0.0
+
 
 var active_mask:int = 0 #change object with custom mask class
 @export var mask_sprites:Array[Texture2D]
@@ -54,23 +56,36 @@ var masktimer:float=0
 func select_next_mask(next: int):
 	nextMask=next
 	masktimer=maskTimerMax
-	stylebox.bg_color = mask_colors[nextMask]
+	stylebox.bg_color = mask_colors[2]
 	nextMaskSprite.visible=true
 	nextMaskSprite.texture=mask_sprites[nextMask]
 
 func skill_logic():
 	speed_scale = 1.0
 	maxjumpamount = 1
+	slide_damage = 0.0
 	match active_mask: #change integers with custom mask ENUM
 		0:
 			pass # do nothing and display no mask symbol
 		1:
-			speed_scale = 1.5
+			pass
 		2:
+			maxjumpamount = 2
+			speed_scale = 0.75
 			maxjumpamount = 2
 		3:
 			pass #idk
-
+		4:
+			pass
+		5:
+			slide_damage = 20.0
+			speed_scale = 2.0
+			
+#1 bug
+#2 ghost with hands
+#3 square guy
+#4 fries
+#5 crab
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -166,13 +181,16 @@ func gun_sway(delta):
 func _process(delta: float) -> void:
 	$ui/hpbar.scale = (1.0 + clamp(smoothstep(0.0,20.0,abs($ui/hpbar.value-hp)),0.0,1.0))*Vector2.ONE
 	$ui/hpbar.value = lerp($ui/hpbar.value,hp,5.0*delta)
-	$ui/maskselectbar.value = masktimer*100	
+	$ui/maskselectbar.max_value = maskTimerMax*100
+	$ui/maskselectbar.value = masktimer*100
+	$ui/masknext/Label.visible=masktimer>0
 	if(masktimer>0):masktimer-=delta
 	else: nextMaskSprite.visible=false
 	if Input.is_action_just_pressed("equip") and masktimer>0:
 		active_mask=nextMask
 		$head/hand._equip_gun(nextMask)
 		$ui/mask/masksprite.texture = mask_sprites[active_mask]
+		masktimer = 0
 	
 func _physics_process(delta):
 	skill_logic()
@@ -224,7 +242,8 @@ func _physics_process(delta):
 			if slide_timer.is_stopped():
 				take_damage(enemy.damage)
 			else:
-				enemy.take_damage(0.0)
+				if slide_damage>0.0:
+					enemy.take_damage(slide_damage)
 				enemy.velocity += (enemy.global_position-(global_position+Vector3.DOWN*0.5)).normalized()*50.0
 
 func take_damage(damage:float)->void:

@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1pue02yjr725"
-path.s3tc="res://.godot/imported/redghostAnim.png-48041e311963d27f0e7b20096c36ed96.s3tc.ctex"
+uid="uid://fps7hls4i7yk"
+path.s3tc="res://.godot/imported/GroundTexture.png-574d58e6053e9647aec188c4160cd15d.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Textures/redghostAnim.png"
-dest_files=["res://.godot/imported/redghostAnim.png-48041e311963d27f0e7b20096c36ed96.s3tc.ctex"]
+source_file="res://Textures/GroundTexture.png"
+dest_files=["res://.godot/imported/GroundTexture.png-574d58e6053e9647aec188c4160cd15d.s3tc.ctex"]
 
 [params]
 
