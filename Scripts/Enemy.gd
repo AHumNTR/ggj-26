@@ -15,6 +15,8 @@ var hp := 20
 func enemy_logic(delta):
 	pass
 
+
+
 func take_damage(damage:float):
 	if inv:
 		return
@@ -22,7 +24,7 @@ func take_damage(damage:float):
 	if hp <= 0.0:
 		die()
 		return
-	$Sprite3D.modulate = Color(18.892, 10.582, 9.384, 1.0)
+	$Sprite3D.modulate = Color(0.655, 0.012, 0.0, 1.0)
 	inv = true
 	await get_tree().create_timer(0.5).timeout
 	$Sprite3D.modulate = Color.WHITE
