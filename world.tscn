@@ -201,20 +201,25 @@ mesh = SubResource("PrismMesh_k3n1d")
 
 [node name="spawnbox2" type="CSGBox3D" parent="." unique_id=1005497498]
 transform = Transform3D(0.17859615, 0, -0.9839224, 0, 1, 0, 0.9839224, 0, 0.17859615, -68.25527, 4.0840797, -32.133423)
+visible = false
 size = Vector3(109.76416, 14.214355, 36.05713)
 
 [node name="spawnbox3" type="CSGBox3D" parent="." unique_id=1784251452]
 transform = Transform3D(-0.99952406, 0, 0.030870155, 0, 1, 0, -0.030870155, 0, -0.99952406, 73.34435, 1.5609818, -43.292755)
+visible = false
 size = Vector3(41.731018, 14.214355, 100.35571)
 
 [node name="spawnbox4" type="CSGBox3D" parent="." unique_id=973996824]
 transform = Transform3D(0.086877406, 0, -0.99621964, 0, 1, 0, 0.99621964, 0, 0.086877406, 1.0128725, 4.0840797, -80.14906)
+visible = false
 size = Vector3(25.366348, 14.214355, 91.33655)
 
 [node name="spawnbox" type="CSGBox3D" parent="." unique_id=887951962]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.73083496, 6.6071777, 74.08145)
+visible = false
 size = Vector3(177.02905, 14.214355, 36.05713)
 
 [node name="spawnbox5" type="CSGBox3D" parent="." unique_id=638069829]
 transform = Transform3D(0.9965147, 0, 0.083417, 0, 1, 0, -0.083417, 0, 0.9965147, -53.930275, 4.0840797, -13.988504)
+visible = false
 size = Vector3(80.787476, 14.214355, 36.05713)
