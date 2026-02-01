@@ -1,0 +1,24 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://2gws1vuos5pt"]
+
+[ext_resource type="Texture2D" uid="uid://fps7hls4i7yk" path="res://Textures/GroundTexture.png" id="1_xvgr5"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_tlwt5"]
+frequency = 0.0025
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_aqk2v"]
+noise = SubResource("FastNoiseLite_tlwt5")
+seamless = true
+as_normal_map = true
+bump_strength = 10.0
+
+[resource]
+albedo_color = Color(0.39308554, 0.3930855, 0.39308548, 1)
+albedo_texture = ExtResource("1_xvgr5")
+metallic_specular = 0.07
+normal_enabled = true
+normal_scale = 5.0
+normal_texture = SubResource("NoiseTexture2D_aqk2v")
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_triplanar = true
+uv2_world_triplanar = true
+texture_filter = 0

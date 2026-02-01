@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://dga0dc6dgbs6r" path="res://Scripts/Guns/Laser.gd" id="1_4vju6"]
 [ext_resource type="Texture2D" uid="uid://dnpdydp3qg42i" path="res://Textures/gun3withnobeam.png" id="2_4vju6"]
-[ext_resource type="Texture2D" uid="uid://ci5ls6rg312is" path="res://Textures/gun3beam2.png" id="2_jbin7"]
 [ext_resource type="Texture2D" uid="uid://ddebpxx5lp1kc" path="res://Textures/gun3beam2anim.png" id="4_0k70d"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3ipng"]
@@ -70,11 +69,8 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_3p2lx")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_jbin7")
 }],
-"loop": false,
+"loop": true,
 "name": &"default",
 "speed": 5.0
 }]
@@ -84,18 +80,19 @@ script = ExtResource("1_4vju6")
 damage = 50
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=595627723]
-transform = Transform3D(0.16007926, 0, 0, 0, 0.16007926, 0, 0, 0, 0.295, -0.05196085, 0.32618952, -0.09252173)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.923, -0.05196085, 0.36550796, -0.32167917)
 billboard = 1
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_0k70d")
-frame = 3
+frame = 4
 frame_progress = 1.0
 
 [node name="idleanim" type="AnimatedSprite3D" parent="." unique_id=1043679874]
-transform = Transform3D(0.295, 0, 0, 0, 0.295, 0, 0, 0, 0.295, 0, 0.23553845, 0)
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0.1403988, 0.020930648)
 billboard = 1
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_4ur0h")
+autoplay = "default"
 
 [connection signal="animation_finished" from="AnimatedSprite3D" to="." method="_on_animated_sprite_3d_animation_finished"]
 [connection signal="animation_finished" from="idleanim" to="." method="_on_animated_sprite_3d_animation_finished"]

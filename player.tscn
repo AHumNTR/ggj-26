@@ -11,7 +11,10 @@
 [ext_resource type="PackedScene" uid="uid://cd5iljw3mpsge" path="res://Guns/BugGun.tscn" id="8_b26j0"]
 [ext_resource type="QuadMesh" uid="uid://byqvlclc8terb" path="res://Particles/dustpass.tres" id="8_dw050"]
 [ext_resource type="PackedScene" uid="uid://dssurk6tsuvt" path="res://Guns/LaserGun.tscn" id="11_ivps1"]
+[ext_resource type="Texture2D" uid="uid://c877pemmmsgii" path="res://GameUI/HealthBarBack.png" id="12_u1c27"]
 [ext_resource type="PackedScene" uid="uid://b6er8tj3dt76k" path="res://Guns/ElectroGun.tscn" id="13_bwjto"]
+[ext_resource type="Texture2D" uid="uid://bqqjigjfontce" path="res://GameUI/HealthBarFront.png" id="13_op7ga"]
+[ext_resource type="Texture2D" uid="uid://3crsm5oqd5sq" path="res://GameUI/HealthBarProgress.png" id="14_q13i1"]
 [ext_resource type="Texture2D" uid="uid://7ab2cbuk7mys" path="res://Textures/circle.png" id="15_606se"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bwjto"]
@@ -135,31 +138,6 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_1jxqw"]
 gradient = SubResource("Gradient_2hs0m")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2hs0m"]
-bg_color = Color(0.1254902, 0.015686275, 0, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 4
-border_width_bottom = 2
-border_color = Color(0.1254902, 0.015686275, 0, 1)
-border_blend = true
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-expand_margin_left = 4.0
-expand_margin_top = 4.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1jxqw"]
-bg_color = Color(0.827451, 0, 0.14901961, 1)
-border_color = Color(0.1254902, 0.015686275, 0, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-shadow_color = Color(0.31658643, 2.1658838e-07, 1.5642495e-07, 0.6)
-shadow_size = 2
-
 [node name="player" type="CharacterBody3D" unique_id=1195508512 node_paths=PackedStringArray("head", "cam", "hand")]
 collision_mask = 7
 script = ExtResource("1_4flbx")
@@ -222,7 +200,6 @@ visible = false
 raycast = NodePath("../../cam/RocketRaycast")
 
 [node name="LaserGun" parent="head/hand" unique_id=1267632268 node_paths=PackedStringArray("shapeCast", "raycast") instance=ExtResource("11_ivps1")]
-visible = false
 shapeCast = NodePath("../../cam/ShapeCast3D")
 gun_name = "Laser Gun"
 raycast = NodePath("../../cam/DefaultRaycast")
@@ -294,22 +271,23 @@ rotation = 0.7853982
 scale = Vector2(0.1, 0.1)
 texture = SubResource("GradientTexture2D_1jxqw")
 
-[node name="hpbar" type="ProgressBar" parent="ui" unique_id=882591801]
+[node name="hpbar" type="TextureProgressBar" parent="ui" unique_id=600521190]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -128.0
-offset_top = -80.0
-offset_right = 128.0
-offset_bottom = -53.0
+offset_left = -72.0
+offset_top = -92.0
+offset_right = 72.0
+offset_bottom = -60.0
 grow_horizontal = 2
 grow_vertical = 0
 pivot_offset_ratio = Vector2(0.5, 0.5)
-theme_override_styles/background = SubResource("StyleBoxFlat_2hs0m")
-theme_override_styles/fill = SubResource("StyleBoxFlat_1jxqw")
 value = 100.0
+texture_under = ExtResource("12_u1c27")
+texture_over = ExtResource("13_op7ga")
+texture_progress = ExtResource("14_q13i1")
 
 [node name="maskselectbar" type="TextureProgressBar" parent="ui" unique_id=496589758]
 anchors_preset = 4
