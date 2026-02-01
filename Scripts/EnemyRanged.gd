@@ -2,7 +2,6 @@ extends Enemy
 class_name EnemyRanged
 
 
-var target_pos:=Vector3.ZERO
 var target_var:=Vector3.ZERO
 var frame = 0
 var state = 0

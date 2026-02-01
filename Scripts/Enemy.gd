@@ -4,7 +4,7 @@ class_name Enemy
 
 const MASK = preload("uid://f5scy1na7fgd")
 
-
+var target_pos:=Vector3.ZERO
 @export var type := 1 #1 is small spider, 2 is floater, 3 is cube guy might add enum later
 var score_value := 0.0
 var hp := 20

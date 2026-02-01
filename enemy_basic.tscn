@@ -72,4 +72,7 @@ wait_time = 10.0
 one_shot = true
 autostart = true
 
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=368380834]
+navigation_layers = 4
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
