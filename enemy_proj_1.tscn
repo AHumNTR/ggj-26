@@ -22,5 +22,9 @@ texture = ExtResource("2_xkxvt")
 wait_time = 20.0
 autostart = true
 
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1273377704]
+avoidance_enabled = true
+radius = 1.5
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="ded" to="." method="_on_ded_timeout"]

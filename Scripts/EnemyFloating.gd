@@ -1,12 +1,10 @@
 extends Enemy
 class_name EnemyFloating
-var target_pos:=Vector3.ZERO
 var target_var:=Vector3.ZERO
 var frame = 0
 func enemy_logic(delta):
 	$Sprite3D.look_at(player.global_position)
 	frame+=1
-	target_pos = player.global_position+target_var
 
 	#if get_node_or_null("Sprite3D"):
 		#$Sprite3D.global_position.y = 2.5 + 0.5*sin(frame/10.0)

@@ -219,4 +219,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.42735863, 0)
 target_position = Vector3(0, -5, 0)
 collision_mask = 4
 
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1577710130]
+avoidance_enabled = true
+radius = 1.5
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

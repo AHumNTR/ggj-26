@@ -1,7 +1,6 @@
 extends Enemy
 class_name EnemeyDash
 
-var target_pos:=Vector3.ZERO
 var target_var:=Vector3.ZERO
 var frame = 0
 var state = 0
@@ -14,7 +13,6 @@ enum {
 }
 func enemy_logic(delta):
 	frame+=1
-	target_pos = player.global_position+target_var
 	var dist_to_player = global_position.distance_to(player.global_position)
 	match state:
 		Moving:

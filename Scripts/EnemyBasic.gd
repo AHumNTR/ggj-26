@@ -1,11 +1,9 @@
 extends Enemy
 class_name EnemyBasic
-var target_pos:=Vector3.ZERO
 
 var target_var:=Vector3.ZERO
 var base_speed := 5.0
 func enemy_logic(delta):
-	target_pos = player.global_position+target_var
 	if get_node_or_null("Sprite3D"):
 		if $Sprite3D.sprite_frames.has_animation("run"):
 			$Sprite3D.play("run")
