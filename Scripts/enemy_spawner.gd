@@ -26,8 +26,8 @@ func _on_timer_timeout() -> void:
 	print("Spawning: ",enemy_spawned_this_wave+1,"/",Waves.get_enemy_amount())
 	var reg:CSGBox3D = spawnboxes.pick_random()
 	
-	spawn_pos.x=randf_range(-reg.size.x/2.0,reg.size.x/2.0)
-	spawn_pos.z=randf_range(-reg.size.z/2.0,reg.size.z/2.0)
+	spawn_pos.x=reg.global_position.x+(reg.global_basis.x*randf_range(-reg.size.x/2.0,reg.size.x/2.0)).x
+	spawn_pos.z=reg.global_position.z+(reg.global_basis.z*randf_range(-reg.size.z/2.0,reg.size.z/2.0)).z
 	
 	
 	spawn_pos.y = 1.2

@@ -11,7 +11,7 @@ func get_spawn_period():
 func next_wave():
 	wave+=1
 	enemy_killed_this_wave = 0
-	get_tree().create_timer(45.0).timeout
+	get_tree().create_timer(120.0).timeout
 	if enemy_killed_this_wave > get_enemy_amount()/2:
 		next_wave()
 	

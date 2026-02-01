@@ -71,7 +71,7 @@ func skill_logic():
 			pass
 		2:
 			maxjumpamount = 2
-			speed_scale = 0.75
+			speed_scale = 0.85
 		3:
 			pass #idk
 		4:
@@ -178,8 +178,9 @@ func gun_sway(delta):
 
 
 func _process(delta: float) -> void:
-	$ui/hpbar.scale = (1.0 + clamp(smoothstep(0.0,20.0,abs($ui/hpbar.value-hp)),0.0,1.0))*Vector2.ONE
-	$ui/hpbar.value = lerp($ui/hpbar.value,hp,5.0*delta)
+	print(hp," ",$ui/hpbar.value)
+	$ui/hpbar.scale = (1.5 + clamp(smoothstep(0.0,20.0,abs($ui/hpbar.value-hp)),0.0,1.0))*Vector2.ONE
+	$ui/hpbar.value = lerp($ui/hpbar.value,hp,15.0*delta)
 	$ui/maskselectbar.max_value = maskTimerMax*100
 	$ui/maskselectbar.value = masktimer*100
 	$ui/masknext/Label.visible=masktimer>0

@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://b3gxum212bmtg"]
+
+[ext_resource type="AudioStream" uid="uid://bui7u6q6p0l3s" path="res://Music/DemonicOverture.wav" id="1_3rjm3"]
+[ext_resource type="Script" uid="uid://caj86ijmvx2qg" path="res://Global Scripts/Music.gd" id="2_v3k4o"]
+
+[node name="musicplayer" type="AudioStreamPlayer" unique_id=208211164]
+stream = ExtResource("1_3rjm3")
+autoplay = true
+script = ExtResource("2_v3k4o")
