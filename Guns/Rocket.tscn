@@ -46,6 +46,7 @@ damage = 30.0
 transform = Transform3D(0.5426614, -7.335029e-09, -0.8399515, 0.52007794, 0.7852521, 0.33600304, 0.6595737, -0.61917615, 0.42612603, 0, 0, 0)
 pixel_size = 0.02
 billboard = 1
+texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_5mfpj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1972825998]

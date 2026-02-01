@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" path="res://Scripts/Guns/Electro.gd" id="1_e245d"]
 [ext_resource type="Texture2D" uid="uid://ciuwsvra7vvif" path="res://Textures/ElectroGunAnim.png" id="2_e245d"]
+[ext_resource type="PackedScene" uid="uid://dr48hi533fps5" path="res://Particles/ElectricParticle.tscn" id="2_prceu"]
+[ext_resource type="Texture2D" uid="uid://bu235e7l8j45" path="res://Textures/YellowGunIdleAnim.png" id="3_lv0sl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lv0sl"]
 atlas = ExtResource("2_e245d")
@@ -35,6 +37,46 @@ region = Rect2(960, 0, 160, 160)
 atlas = ExtResource("2_e245d")
 region = Rect2(1120, 0, 160, 160)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_4jerd"]
+atlas = ExtResource("3_lv0sl")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0rcww"]
+atlas = ExtResource("3_lv0sl")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kx3ht"]
+atlas = ExtResource("3_lv0sl")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8sjlw"]
+atlas = ExtResource("3_lv0sl")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lkigw"]
+atlas = ExtResource("3_lv0sl")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e3drt"]
+atlas = ExtResource("3_lv0sl")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e8pay"]
+atlas = ExtResource("3_lv0sl")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2iftv"]
+atlas = ExtResource("3_lv0sl")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lcxyj"]
+atlas = ExtResource("3_lv0sl")
+region = Rect2(1024, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m00j0"]
+atlas = ExtResource("3_lv0sl")
+region = Rect2(1152, 0, 128, 128)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_4jerd"]
 animations = [{
 "frames": [{
@@ -65,27 +107,66 @@ animations = [{
 "loop": false,
 "name": &"default",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_4jerd")
+}, {
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_0rcww")
+}, {
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_kx3ht")
+}, {
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_8sjlw")
+}, {
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_lkigw")
+}, {
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_e3drt")
+}, {
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_e8pay")
+}, {
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_2iftv")
+}, {
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_lcxyj")
+}, {
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_m00j0")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
 }]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_e245d"]
-radius = 2.8630354
+radius = 3.0
 
 [node name="Electro" type="Node3D" unique_id=1597229924]
 script = ExtResource("1_e245d")
+particleScene = ExtResource("2_prceu")
 damage = 50
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=863509925]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0.13401477, 0)
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.116348416, 0.069169864, 0)
+pixel_size = 0.015
 billboard = 1
+texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_4jerd")
-frame = 7
-frame_progress = 1.0
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.0048411265
 
 [node name="Area3D" type="Area3D" parent="." unique_id=265748850]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.8507023)
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=65497140]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.8901715)
 shape = SubResource("SphereShape3D_e245d")
 debug_color = Color(0.96982354, 9.62615e-08, 0.46196067, 0.41960785)
 

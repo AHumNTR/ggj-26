@@ -1,10 +1,32 @@
 [gd_scene format=3 uid="uid://ratajomhdrcq"]
 
 [ext_resource type="Script" uid="uid://bxf1g3cmeyf4f" path="res://Scripts/Guns/BugAmmo.gd" id="1_480j5"]
-[ext_resource type="Texture2D" uid="uid://dcg8xknrjmf1m" path="res://Textures/BugAmmo.png" id="1_k6xyn"]
+[ext_resource type="Texture2D" uid="uid://b3x56p58c27bp" path="res://Textures/bugAmmoAnim.png" id="2_480j5"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_480j5"]
 radius = 0.117680036
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h4cvm"]
+atlas = ExtResource("2_480j5")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y28st"]
+atlas = ExtResource("2_480j5")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nain0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h4cvm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y28st")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_h4cvm"]
 radius = 3.8662364
@@ -18,11 +40,12 @@ damage = 100.0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1094686155]
 shape = SubResource("SphereShape3D_480j5")
 
-[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1442085348]
+[node name="Sprite3D" type="AnimatedSprite3D" parent="." unique_id=513473582]
 transform = Transform3D(5.515, 0, 0, 0, 5.515, 0, 0, 0, 5.515, 0, 0, 0)
 billboard = 1
 texture_filter = 0
-texture = ExtResource("1_k6xyn")
+sprite_frames = SubResource("SpriteFrames_nain0")
+autoplay = "default"
 
 [node name="Area3D" type="Area3D" parent="." unique_id=720658645]
 collision_layer = 2

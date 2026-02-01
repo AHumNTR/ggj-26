@@ -2,36 +2,106 @@
 
 [ext_resource type="Script" uid="uid://dga0dc6dgbs6r" path="res://Scripts/Guns/Laser.gd" id="1_4vju6"]
 [ext_resource type="Texture2D" uid="uid://dnpdydp3qg42i" path="res://Textures/gun3withnobeam.png" id="2_4vju6"]
-[ext_resource type="Texture2D" uid="uid://ddebpxx5lp1kc" path="res://Textures/gun3beam2anim.png" id="4_0k70d"]
+[ext_resource type="Texture2D" uid="uid://duk5bo3bfn8ky" path="res://Textures/ChargeGunAmmoAnim.png" id="2_jbin7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3ipng"]
-atlas = ExtResource("4_0k70d")
-region = Rect2(0, 0, 128, 128)
+atlas = ExtResource("2_jbin7")
+region = Rect2(0, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hq8lo"]
-atlas = ExtResource("4_0k70d")
-region = Rect2(128, 0, 128, 128)
+atlas = ExtResource("2_jbin7")
+region = Rect2(96, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nqm3l"]
-atlas = ExtResource("4_0k70d")
-region = Rect2(256, 0, 128, 128)
+atlas = ExtResource("2_jbin7")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jkpwe"]
+atlas = ExtResource("2_jbin7")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oalhu"]
+atlas = ExtResource("2_jbin7")
+region = Rect2(384, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x0hvu"]
+atlas = ExtResource("2_jbin7")
+region = Rect2(480, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ds86"]
+atlas = ExtResource("2_jbin7")
+region = Rect2(576, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_52kt2"]
+atlas = ExtResource("2_jbin7")
+region = Rect2(672, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2w0o6"]
+atlas = ExtResource("2_jbin7")
+region = Rect2(768, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_arx6k"]
+atlas = ExtResource("2_jbin7")
+region = Rect2(864, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gxr7c"]
+atlas = ExtResource("2_jbin7")
+region = Rect2(960, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bq2qj"]
+atlas = ExtResource("2_jbin7")
+region = Rect2(1056, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_koc6k"]
+atlas = ExtResource("2_jbin7")
+region = Rect2(1152, 0, 96, 96)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0k70d"]
 animations = [{
 "frames": [{
-"duration": 1.0,
+"duration": 0.4,
 "texture": null
 }, {
-"duration": 1.0,
+"duration": 0.4,
 "texture": SubResource("AtlasTexture_3ipng")
 }, {
-"duration": 1.0,
+"duration": 0.4,
 "texture": SubResource("AtlasTexture_hq8lo")
 }, {
-"duration": 1.0,
+"duration": 0.4,
 "texture": SubResource("AtlasTexture_nqm3l")
 }, {
-"duration": 1.0,
+"duration": 0.4,
+"texture": SubResource("AtlasTexture_jkpwe")
+}, {
+"duration": 0.4,
+"texture": SubResource("AtlasTexture_oalhu")
+}, {
+"duration": 0.4,
+"texture": SubResource("AtlasTexture_x0hvu")
+}, {
+"duration": 0.4,
+"texture": SubResource("AtlasTexture_6ds86")
+}, {
+"duration": 0.4,
+"texture": SubResource("AtlasTexture_52kt2")
+}, {
+"duration": 0.4,
+"texture": SubResource("AtlasTexture_2w0o6")
+}, {
+"duration": 0.4,
+"texture": SubResource("AtlasTexture_arx6k")
+}, {
+"duration": 0.4,
+"texture": SubResource("AtlasTexture_gxr7c")
+}, {
+"duration": 0.4,
+"texture": SubResource("AtlasTexture_bq2qj")
+}, {
+"duration": 0.4,
+"texture": SubResource("AtlasTexture_koc6k")
+}, {
+"duration": 0.01,
 "texture": null
 }],
 "loop": false,
@@ -80,15 +150,13 @@ script = ExtResource("1_4vju6")
 damage = 50
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=595627723]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.923, -0.05196085, 0.36550796, -0.32167917)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 2.769, -0.11212522, 0.1710163, -0.7419353)
 billboard = 1
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_0k70d")
-frame = 4
-frame_progress = 1.0
 
 [node name="idleanim" type="AnimatedSprite3D" parent="." unique_id=1043679874]
-transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0.1403988, 0.020930648)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24921925, -0.18490675, -0.4496305)
 billboard = 1
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_4ur0h")
