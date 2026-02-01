@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://j3hbvf17y2vg" path="res://Scripts/Guns/Rocket.gd" id="1_hlwfn"]
 [ext_resource type="PackedScene" uid="uid://ca41j4qxxutnu" path="res://Guns/Rocket.tscn" id="2_4jtj7"]
 [ext_resource type="Texture2D" uid="uid://c2h2n1mjmliml" path="res://Textures/BazzokaGunAnim.png" id="3_4jtj7"]
+[ext_resource type="AudioStream" uid="uid://dse8cqigomdws" path="res://SFX/BAZUKA.wav" id="4_6uj17"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6uj17"]
 atlas = ExtResource("3_4jtj7")
@@ -67,6 +68,7 @@ animations = [{
 [node name="RocketGun" type="Node3D" unique_id=1597229924]
 script = ExtResource("1_hlwfn")
 rocket = ExtResource("2_4jtj7")
+damage = 200
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=258289758]
 transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 0.305726, 0)
@@ -75,3 +77,6 @@ texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_5eyfy")
 frame = 7
 frame_progress = 1.0
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1843635705]
+stream = ExtResource("4_6uj17")

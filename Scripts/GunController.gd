@@ -18,10 +18,6 @@ func _ready():
 
 func _input(event):
 	# Handle Switching
-	if event.is_action_pressed("weapon_next"):
-		switch_weapon(1)
-	elif event.is_action_pressed("weapon_prev"):
-		switch_weapon(-1)
 	
 	# Handle Actions (Pass inputs to the current gun)
 	if current_gun:

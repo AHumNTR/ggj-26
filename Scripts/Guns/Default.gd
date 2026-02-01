@@ -13,6 +13,7 @@ func shoot():
 	start_cooldown()
 	sprite.play("default")
 
+	super.shoot()
 	# Example: Inspect the weapon or switch fire modes
 func start_cooldown():
 	can_shoot = false

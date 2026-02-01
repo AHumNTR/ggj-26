@@ -1,6 +1,6 @@
 class_name Gun
 extends Node3D
-
+@onready var sound: AudioStreamPlayer3D= $AudioStreamPlayer3D
 @export var gun_name: String = "Base Gun"
 @export var fire_rate: float = 0.5
 @export var damage: int = 10
@@ -11,7 +11,7 @@ var can_shoot: bool = true
 func _ready() -> void:
 	pass
 func shoot():
-	push_error("Method 'shoot' must be overridden in child class: %s" % name)
+	sound.play()
 
 # This simulates an abstract method
 func interact():

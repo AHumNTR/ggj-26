@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dlh1yd45rh5g0"]
 
 [ext_resource type="Script" uid="uid://dkpg1726hwq45" path="res://Scripts/EnemyRanged.gd" id="1_uxmp5"]
-[ext_resource type="Texture2D" uid="uid://cr13s1n363s3f" path="res://Textures/OrangeYellowGhostAnim.png" id="2_uxmp5"]
+[ext_resource type="Texture2D" uid="uid://cr13s1n363s3f" path="res://Textures/OrangeYellowGhostanim.png" id="2_uxmp5"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_g2x43"]
 height = 3.3772354
@@ -74,6 +74,7 @@ collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_uxmp5")
 type = 3
+hp = 40
 damage = 1.0
 speed = 10.0
 metadata/_custom_type_script = "uid://chf41ybnn0pjv"

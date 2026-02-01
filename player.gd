@@ -1,11 +1,15 @@
 class_name Player
 extends CharacterBody3D
 #refs
+
 @export var head:Node3D
 @export var cam:Camera3D
 @export var hand:Node3D
 @onready var slide_timer: Timer = $slide_timer
 @onready var slide_cooldown: Timer = $slide_cooldown
+@onready var damageTakenSound: AudioStreamPlayer3D =$hurtsound
+@onready var jumpSound: AudioStreamPlayer3D =$jumpsound
+@onready var walksound: AudioStreamPlayer3D =$walksound
 
 
 #control settings
@@ -30,6 +34,7 @@ var jump_velocity_scale := 1.0
 
 
 #stuff
+var damageTakenScale := 1.0
 var wish_dir := Vector3.ZERO
 var will_jump = false
 var is_sliding = false
@@ -64,6 +69,8 @@ func skill_logic():
 	speed_scale = 1.0
 	maxjumpamount = 1
 	slide_damage = 0.0
+	jump_velocity_scale=1.0
+	damageTakenScale=1.0
 	match active_mask: #change integers with custom mask ENUM
 		0:
 			pass # do nothing and display no mask symbol
@@ -73,9 +80,9 @@ func skill_logic():
 			maxjumpamount = 2
 			speed_scale = 0.85
 		3:
-			pass #idk
+			damageTakenScale=1.5
 		4:
-			pass
+			jump_velocity_scale=2.0
 		5:
 			slide_damage = 20.0
 			speed_scale = 2.0
@@ -178,9 +185,7 @@ func gun_sway(delta):
 
 
 func _process(delta: float) -> void:
-	print(hp," ",$ui/hpbar.value)
-	$ui/hpbar.scale = (1.5 + clamp(smoothstep(0.0,20.0,abs($ui/hpbar.value-hp)),0.0,1.0))*Vector2.ONE
-	$ui/hpbar.value = lerp($ui/hpbar.value,hp,15.0*delta)
+	$ui/hpbar.value = lerp($ui/hpbar.value,hp,5.0*delta)
 	$ui/maskselectbar.max_value = maskTimerMax*100
 	$ui/maskselectbar.value = masktimer*100
 	$ui/masknext/Label.visible=masktimer>0
@@ -191,15 +196,17 @@ func _process(delta: float) -> void:
 		$head/hand._equip_gun(nextMask)
 		$ui/mask/masksprite.texture = mask_sprites[active_mask]
 		masktimer = 0
-	
+var frame=1	
 func _physics_process(delta):
+	frame+=1
 	skill_logic()
 	gun_sway(delta)
 	
 	rotate_y(Input.get_axis("ui_left","ui_right")*-0.3/(sqrt(get_h_velocity())+1))
 	
 	handle_input()
-	
+	if(is_on_floor() and wish_dir and frame%60==0):
+		walksound.play()
 	if is_on_floor() and Input.is_action_just_pressed("slide") and slide_cooldown.is_stopped() and wish_dir:
 		slide_timer.start()
 		slide_cooldown.start()
@@ -222,7 +229,8 @@ func _physics_process(delta):
 	
 	if will_jump:
 		jumpsleft -= 1
-		velocity.y = JUMP_VELOCITY
+		velocity.y = JUMP_VELOCITY*jump_velocity_scale
+		jumpSound.play()
 
 	
 	horizontal_velocity = velocity
@@ -249,7 +257,11 @@ func _physics_process(delta):
 func take_damage(damage:float)->void:
 	if $inv_frames.is_stopped():
 		$inv_frames.start()
-		hp -= damage
+		hp -= damage*damageTakenScale
+		damageTakenSound.play()
+		if(hp<0):
+			Input.mouse_mode=Input.MOUSE_MODE_VISIBLE
+			get_tree().change_scene_to_file("res://main_menu.tscn")
 	return
 
 func _ready() -> void:

@@ -8,7 +8,7 @@ var inv = false
 
 @export var type := 1 #1 is small spider, 2 is floater, 3 is cube guy might add enum later
 var score_value := 0.0
-var hp := 20
+@export var hp := 20
 @export var damage:=5.0
 @export var speed=5.0
 @warning_ignore("unused_parameter")

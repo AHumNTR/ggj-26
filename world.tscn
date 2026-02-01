@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dlh1yd45rh5g0" path="res://enemy_ranged.tscn" id="7_hiqwa"]
 [ext_resource type="PackedScene" uid="uid://ct0ds704mps82" path="res://enemy_dash.tscn" id="8_2u3nc"]
 [ext_resource type="PackedScene" uid="uid://wphjcamjd2dj" path="res://enemy_fries.tscn" id="9_udxuc"]
+[ext_resource type="Texture2D" uid="uid://ci7xberylfv6" path="res://Textures/WallTexture.png" id="13_2o6r5"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_tlwt5"]
 sky_top_color = Color(1, 0.31377584, 0.2803165, 1)
@@ -68,6 +69,27 @@ polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(0, 3, 2), PackedInt32Arr
 geometry_collision_mask = 4294967180
 geometry_source_geometry_mode = 1
 geometry_source_group_name = &"nav_mesh"
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_tlwt5"]
+frequency = 0.0025
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_aqk2v"]
+noise = SubResource("FastNoiseLite_tlwt5")
+seamless = true
+as_normal_map = true
+bump_strength = 10.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_70uel"]
+albedo_color = Color(0.39308554, 0.3930855, 0.39308548, 1)
+albedo_texture = ExtResource("13_2o6r5")
+metallic_specular = 0.07
+normal_enabled = true
+normal_scale = 5.0
+normal_texture = SubResource("NoiseTexture2D_aqk2v")
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_triplanar = true
+uv2_world_triplanar = true
+texture_filter = 0
 
 [sub_resource type="PrismMesh" id="PrismMesh_k3n1d"]
 left_to_right = -1.1
@@ -142,7 +164,7 @@ region_enabled = true
 region_rect = Rect2(517, 0, 123, 128)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=322368522]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0050735474, 0.11394787, -0.011726379)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.022132874, 0.11394787, -0.013461351)
 navigation_mesh = SubResource("NavigationMesh_036b0")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1709383703 groups=["nav_mesh"]]
@@ -155,7 +177,7 @@ flip_faces = true
 size = Vector3(200, 13.228241, 200)
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=103584417 groups=["nav_mesh"]]
-material_override = ExtResource("4_dwbse")
+material_override = SubResource("StandardMaterial3D_70uel")
 use_collision = true
 collision_layer = 4
 collision_mask = 0

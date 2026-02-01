@@ -19,6 +19,7 @@ func shoot():
 func _on_animated_sprite_3d_animation_finished() -> void:
 
 	var count = shapeCast.get_collision_count()
+	sound.play()	
 
 	for i in range(count):
 		var hit_object = shapeCast.get_collider(i)

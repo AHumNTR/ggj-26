@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dwu6yht2m71w0" path="res://Scripts/Guns/Crab.gd" id="1_qpm65"]
 [ext_resource type="Texture2D" uid="uid://cx6t0c3qw267e" path="res://Textures/CrabHandAnim.png" id="2_50ebn"]
+[ext_resource type="AudioStream" uid="uid://c46xh5hjfxdrk" path="res://SFX/crabSound.wav" id="3_rripp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rripp"]
 atlas = ExtResource("2_50ebn")
@@ -54,3 +55,6 @@ billboard = 1
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_4ur0h")
 frame_progress = 0.6060624
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=325503513]
+stream = ExtResource("3_rripp")

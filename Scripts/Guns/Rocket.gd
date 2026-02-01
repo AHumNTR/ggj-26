@@ -11,6 +11,7 @@ func shoot():
 	rocketInstance.global_transform=raycast.global_transform
 	get_tree().root.add_child(rocketInstance)
 	animation.play("default")
+	super.shoot()
 	start_cooldown()
 
 func start_cooldown():

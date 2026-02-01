@@ -18,7 +18,7 @@ func _on_body_entered(body: Node3D) -> void:
 			p.velocity+=jumpForce*(p.position-position).normalized()/(p.position-position).length()
 		elif(kill.has_method("take_damage")):
 				
-			kill.take_damage(10000)
+			kill.take_damage(damage/position.distance_to(kill.position))
 	var particleInstance: Node3D=particle.instantiate()
 	get_tree().root.add_child(particleInstance)
 	particleInstance.global_position=global_position

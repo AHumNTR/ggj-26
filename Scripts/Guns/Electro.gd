@@ -3,10 +3,13 @@ extends Gun
 @onready var sprite: AnimatedSprite3D= $"AnimatedSprite3D"
 @onready var area3d:Area3D=$Area3D
 @export var particleScene:PackedScene
+@export var player: Player
+@export var healing:int 
 func shoot():
 	if sprite.animation=="default":
 		return
 	sprite.play("default")
+	super.shoot()
 
 func _on_animated_sprite_3d_animation_finished() -> void:
 	var particle:GPUParticles3D= particleScene.instantiate()
@@ -16,5 +19,7 @@ func _on_animated_sprite_3d_animation_finished() -> void:
 
 	for hit_object in area3d.get_overlapping_bodies():
 		if hit_object.has_method("take_damage"):
+			if(player.hp<100):
+				player.take_damage(-healing)
 			hit_object.take_damage(damage)
 	sprite.play("idle")

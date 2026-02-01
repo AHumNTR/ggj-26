@@ -17,6 +17,7 @@ func shoot():
 			
 	sprite.play("default")
 	start_cooldown()
+	super.shoot()
 func interact():
 	pass
 	# Example: Inspect the weapon or switch fire modes

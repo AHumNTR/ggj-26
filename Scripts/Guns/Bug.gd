@@ -15,6 +15,7 @@ func shoot():
 
 	sprite.play("default")
 	start_cooldown()
+	super.shoot()
 func start_cooldown():
 	can_shoot = false
 	await get_tree().create_timer(fire_rate).timeout
