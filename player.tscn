@@ -13,8 +13,13 @@
 [ext_resource type="PackedScene" uid="uid://cd5iljw3mpsge" path="res://Guns/BugGun.tscn" id="8_b26j0"]
 [ext_resource type="QuadMesh" uid="uid://byqvlclc8terb" path="res://Particles/dustpass.tres" id="8_dw050"]
 [ext_resource type="PackedScene" uid="uid://bybilnhnp8se5" path="res://Guns/LaserGun.tscn" id="11_ivps1"]
+[ext_resource type="PackedScene" uid="uid://b6er8tj3dt76k" path="res://Guns/ElectroGun.tscn" id="13_bwjto"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_onrkg"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_urp6f"]
+height = 100.0
+radius = 0.2
 
 [sub_resource type="Animation" id="Animation_4flbx"]
 length = 0.001
@@ -184,6 +189,12 @@ target_position = Vector3(0, 0, -5)
 collide_with_areas = true
 collide_with_bodies = false
 
+[node name="ShapeCast3D" type="ShapeCast3D" parent="head/cam" unique_id=276363308]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, -50.440685)
+shape = SubResource("CylinderShape3D_urp6f")
+target_position = Vector3(0, 0, 0)
+collision_mask = 2
+
 [node name="hand" type="Node3D" parent="head" unique_id=2043321649 node_paths=PackedStringArray("raycast")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4280504, -0.32719058, -0.5054881)
 script = ExtResource("2_i3pqv")
@@ -208,10 +219,13 @@ raycast = NodePath("../../cam/RocketRaycast")
 visible = false
 raycast = NodePath("../../cam/DefaultRaycast")
 
-[node name="LaserGun" parent="head/hand" unique_id=1267632268 node_paths=PackedStringArray("raycast") instance=ExtResource("11_ivps1")]
+[node name="LaserGun" parent="head/hand" unique_id=1267632268 node_paths=PackedStringArray("shapeCast", "raycast") instance=ExtResource("11_ivps1")]
 visible = false
+shapeCast = NodePath("../../cam/ShapeCast3D")
 gun_name = "Laser Gun"
 raycast = NodePath("../../cam/DefaultRaycast")
+
+[node name="Electro" parent="head/hand" unique_id=1394510406 instance=ExtResource("13_bwjto")]
 
 [node name="slide_timer" type="Timer" parent="." unique_id=991605396]
 wait_time = 0.6

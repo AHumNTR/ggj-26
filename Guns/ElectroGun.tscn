@@ -62,15 +62,31 @@ animations = [{
 "duration": 0.3,
 "texture": SubResource("AtlasTexture_fyje8")
 }],
-"loop": true,
+"loop": false,
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_e245d"]
+radius = 2.8630354
 
 [node name="Electro" type="Node3D" unique_id=1597229924]
 script = ExtResource("1_e245d")
 damage = 50
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=863509925]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0.13401477, 0)
+billboard = 1
 sprite_frames = SubResource("SpriteFrames_4jerd")
-frame_progress = 0.910938
+frame = 7
+frame_progress = 1.0
+
+[node name="Area3D" type="Area3D" parent="." unique_id=265748850]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=65497140]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.8901715)
+shape = SubResource("SphereShape3D_e245d")
+debug_color = Color(0.96982354, 9.62615e-08, 0.46196067, 0.41960785)
+
+[connection signal="animation_finished" from="AnimatedSprite3D" to="." method="_on_animated_sprite_3d_animation_finished"]
