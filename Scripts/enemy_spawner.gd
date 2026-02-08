@@ -12,7 +12,7 @@ func _ready() -> void:
 
 func _on_timer_timeout() -> void:
 	
-	if Waves.enemy_killed_this_wave == Waves.get_enemy_amount():
+	if Waves.enemy_killed_this_wave >= Waves.get_enemy_amount()-3:
 		Waves.next_wave()
 		enemy_spawned_this_wave=0
 		$Timer.wait_time = 1.0

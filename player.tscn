@@ -234,12 +234,10 @@ raycast = NodePath("../../cam/DefaultRaycast")
 [node name="Electro" parent="head/hand" unique_id=1394510406 node_paths=PackedStringArray("player") instance=ExtResource("13_bwjto")]
 visible = false
 player = NodePath("../../..")
-healing = 2
 
 [node name="CrabGun" parent="head/hand" unique_id=1892218956 node_paths=PackedStringArray("raycast") instance=ExtResource("6_2hs0m")]
 visible = false
 gun_name = "Base Gun"
-fire_rate = 0.5
 raycast = NodePath("../../cam/MeleRaycast")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="head/hand" unique_id=959393628]
@@ -312,6 +310,7 @@ offset_right = 72.0
 offset_bottom = -60.0
 grow_horizontal = 2
 grow_vertical = 0
+scale = Vector2(2, 2)
 pivot_offset_ratio = Vector2(0.5, 0.5)
 texture_under = ExtResource("12_u1c27")
 texture_over = ExtResource("13_op7ga")
@@ -364,5 +363,5 @@ theme_override_font_sizes/font_size = 24
 text = "Press [E] to accept the mask"
 
 [node name="inv_frames" type="Timer" parent="." unique_id=258506999]
-wait_time = 0.2
+wait_time = 0.5
 one_shot = true

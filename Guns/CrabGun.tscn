@@ -45,9 +45,9 @@ animations = [{
 
 [node name="CrabGun" type="Node3D" unique_id=1597229924]
 script = ExtResource("1_qpm65")
-gun_name = null
-fire_rate = null
-damage = 50
+gun_name = "crab"
+fire_rate = 0.4
+damage = 75
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=1043679874]
 transform = Transform3D(0.295, 0, 0, 0, 0.295, 0, 0, 0, 0.295, 0, 0.23553845, 0)

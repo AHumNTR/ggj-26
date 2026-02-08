@@ -40,11 +40,11 @@ script = ExtResource("1_m3mam")
 particle = ExtResource("2_82tx7")
 speed = 20.0
 jumpForce = 20.0
-damage = 30.0
+damage = 150.0
 
 [node name="Sprite3D" type="AnimatedSprite3D" parent="." unique_id=1415985741]
 transform = Transform3D(0.5426614, -7.335029e-09, -0.8399515, 0.52007794, 0.7852521, 0.33600304, 0.6595737, -0.61917615, 0.42612603, 0, 0, 0)
-pixel_size = 0.02
+pixel_size = 0.03
 billboard = 1
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_5mfpj")

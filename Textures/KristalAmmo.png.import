@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cr13s1n363s3f"
-path.s3tc="res://.godot/imported/OrangeYellowGhostAnim.png-2e9963583f7219aac1bb017965c9c147.s3tc.ctex"
+uid="uid://3pfwmesrh4t"
+path.s3tc="res://.godot/imported/KristalAmmo.png-8b608c73856780c09f37d36667246c1a.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Textures/OrangeYellowGhostAnim.png"
-dest_files=["res://.godot/imported/OrangeYellowGhostAnim.png-2e9963583f7219aac1bb017965c9c147.s3tc.ctex"]
+source_file="res://Textures/KristalAmmo.png"
+dest_files=["res://.godot/imported/KristalAmmo.png-8b608c73856780c09f37d36667246c1a.s3tc.ctex"]
 
 [params]
 

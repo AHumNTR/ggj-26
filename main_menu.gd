@@ -5,6 +5,8 @@ const WORLD = preload("uid://wu6tt5cs0byc")
 
 
 func _on_play_pressed() -> void:
+	Waves.enemy_killed_this_wave = 0
+	Waves.wave = 1
 	get_tree().change_scene_to_packed(WORLD)
 
 

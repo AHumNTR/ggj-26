@@ -148,7 +148,7 @@ animations = [{
 
 [node name="LaserGun" type="Node3D" unique_id=1597229924]
 script = ExtResource("1_4vju6")
-damage = 50
+damage = 150
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=595627723]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 2.769, -0.11212522, 0.1710163, -0.7419353)

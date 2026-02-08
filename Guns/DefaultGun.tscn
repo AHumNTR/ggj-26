@@ -41,6 +41,7 @@ format = 3
 
 [node name="DefaultGun" type="Node3D" unique_id=1597229924]
 script = ExtResource("1_8fvh1")
+damage = 20
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=1103983466]
 transform = Transform3D(0.49, 0, 0, 0, 0.49, 0, 0, 0, 0.49, 0, -0.017793596, 0)

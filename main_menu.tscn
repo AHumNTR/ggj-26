@@ -140,7 +140,7 @@ anchor_right = 1.0
 offset_bottom = 203.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 64
-text = "GAME NAME"
+text = "Masketeer"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -302,7 +302,7 @@ texture = ExtResource("5_dy7ct")
 [node name="Label4" type="Label" parent="Control2/VBoxContainer" unique_id=1409092294]
 layout_mode = 2
 text = "Shock Gun
-(+) Jump Height"
+Life Steal"
 
 [node name="TextureRect" type="TextureRect" parent="Control2/VBoxContainer/Label4" unique_id=1067863595]
 layout_mode = 1

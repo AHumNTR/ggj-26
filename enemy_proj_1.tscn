@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://tkrmgo5wpjtu"]
 
-[ext_resource type="Script" path="res://Scripts/enemy_proj_1.gd" id="1_hbmpl"]
-[ext_resource type="Texture2D" uid="uid://cjs2bpgx5cpln" path="res://Textures/Smoke.png" id="2_xkxvt"]
+[ext_resource type="Script" uid="uid://btsuip34rctrf" path="res://Scripts/enemy_proj_1.gd" id="1_hbmpl"]
+[ext_resource type="Texture2D" uid="uid://3pfwmesrh4t" path="res://Textures/KristalAmmo.png" id="2_hbmpl"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_hbmpl"]
-radius = 0.2
+radius = 0.2507719
 
 [node name="EnemyProj1" type="Area3D" unique_id=1307855092]
 collision_layer = 2
@@ -15,8 +15,10 @@ script = ExtResource("1_hbmpl")
 shape = SubResource("SphereShape3D_hbmpl")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=1936798093]
+pixel_size = 0.02
 billboard = 1
-texture = ExtResource("2_xkxvt")
+texture_filter = 0
+texture = ExtResource("2_hbmpl")
 
 [node name="ded" type="Timer" parent="." unique_id=957593002]
 wait_time = 20.0

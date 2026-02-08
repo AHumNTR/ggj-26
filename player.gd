@@ -185,7 +185,7 @@ func gun_sway(delta):
 
 
 func _process(delta: float) -> void:
-	$ui/hpbar.value = lerp($ui/hpbar.value,hp,5.0*delta)
+	$ui/hpbar.value = hp
 	$ui/maskselectbar.max_value = maskTimerMax*100
 	$ui/maskselectbar.value = masktimer*100
 	$ui/masknext/Label.visible=masktimer>0
