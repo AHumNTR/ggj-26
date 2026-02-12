@@ -167,12 +167,15 @@ maskTimerMax = 3.0
 
 [node name="hurtsound" type="AudioStreamPlayer3D" parent="." unique_id=362075575]
 stream = ExtResource("17_op7ga")
+bus = &"SFX"
 
 [node name="jumpsound" type="AudioStreamPlayer3D" parent="." unique_id=417078632]
 stream = ExtResource("5_q13i1")
+bus = &"SFX"
 
 [node name="walksound" type="AudioStreamPlayer3D" parent="." unique_id=587275611]
 stream = ExtResource("6_pylmc")
+bus = &"SFX"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2018290072]
 shape = SubResource("CapsuleShape3D_onrkg")

@@ -121,7 +121,9 @@ text = "Sound effects"
 
 [node name="HSlider" type="HSlider" parent="HBoxContainer" unique_id=1817736930]
 layout_mode = 2
-value = 100.0
+max_value = 1.0
+step = 0.005
+value = 1.0
 
 [node name="Label2" type="Label" parent="HBoxContainer" unique_id=944268351]
 layout_mode = 2
@@ -129,7 +131,19 @@ text = "Music"
 
 [node name="HSlider2" type="HSlider" parent="HBoxContainer" unique_id=239884320]
 layout_mode = 2
-value = 100.0
+max_value = 1.0
+step = 0.005
+value = 1.0
+
+[node name="Label3" type="Label" parent="HBoxContainer" unique_id=66039137]
+layout_mode = 2
+text = "Sensitivity"
+
+[node name="HSlider3" type="HSlider" parent="HBoxContainer" unique_id=1542376941]
+layout_mode = 2
+max_value = 1.0
+step = 0.005
+value = 1.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1413278416]
 environment = SubResource("Environment_8qtwp")
@@ -354,5 +368,10 @@ grow_vertical = 0
 text = "Music Tom Feldmann on Itch.io"
 
 [connection signal="pressed" from="play" to="." method="_on_play_pressed"]
-[connection signal="value_changed" from="HBoxContainer/HSlider2" to="." method="_on_h_slider_2_value_changed"]
+[connection signal="drag_ended" from="HBoxContainer/HSlider" to="." method="SaveGame"]
+[connection signal="value_changed" from="HBoxContainer/HSlider" to="." method="_on_Effect_Slider_value_changed"]
+[connection signal="drag_ended" from="HBoxContainer/HSlider2" to="." method="SaveGame"]
+[connection signal="value_changed" from="HBoxContainer/HSlider2" to="." method="_on_Music_Slider_value_changed"]
+[connection signal="drag_ended" from="HBoxContainer/HSlider3" to="." method="SaveGame"]
+[connection signal="value_changed" from="HBoxContainer/HSlider3" to="." method="_on_Sens_Slider_value_changed"]
 [connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]

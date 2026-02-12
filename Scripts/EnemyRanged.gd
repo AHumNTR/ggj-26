@@ -6,7 +6,7 @@ var target_var:=Vector3.ZERO
 var frame = 0
 var state = Moving
 
-var proj_scene:PackedScene = preload("res://enemy_proj_1.tscn")
+@export var proj_scene:PackedScene
 
 enum {
 	Moving,

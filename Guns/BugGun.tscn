@@ -73,3 +73,4 @@ frame_progress = 1.0
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1382133507]
 stream = ExtResource("4_b5313")
+bus = &"SFX"

@@ -19,10 +19,15 @@ run/main_scene="uid://beoxhs1esivw8"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="uid://jsd7y7ifpp0t"
+
 [autoload]
 
 Waves="*uid://bsgr2wrqdcgst"
 Musicplayer="*uid://b3gxum212bmtg"
+PlayerSettings="*uid://d1cuo31wig3w4"
 
 [dotnet]
 

@@ -13,7 +13,7 @@ extends CharacterBody3D
 
 
 #control settings
-var SENSIVITY:float = 0.0042
+@onready var SENSIVITY:float = PlayerSettings.sensitivity/100
 
 #movement stats
 const SPEED_GROUND := 6.5

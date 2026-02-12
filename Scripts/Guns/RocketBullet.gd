@@ -8,7 +8,6 @@ extends Area3D
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	position+=-speed*delta*basis.z
-	get_overlapping_bodies()
 
 func _on_body_entered(body: Node3D) -> void:
 	for kill: Node3D in explosionArea.get_overlapping_bodies():
