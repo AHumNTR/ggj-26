@@ -1,0 +1,117 @@
+[gd_scene format=3 uid="uid://xwxfa3t7rxt3"]
+
+[ext_resource type="Texture2D" uid="uid://cr13s1n363s3f" path="res://Textures/OrangeYellowGhostanim.png" id="2_bfyxq"]
+[ext_resource type="Texture2D" uid="uid://dmi21s7gmj33s" path="res://Textures/BugGhost.png" id="2_e16ul"]
+[ext_resource type="Texture2D" uid="uid://d2sl1j5mex4x3" path="res://Textures/YellowGhostAnim.png" id="4_wrvsf"]
+[ext_resource type="Texture2D" uid="uid://choe0hnoje1x5" path="res://Textures/DarkBlueGhostAnim.png" id="5_3sihx"]
+[ext_resource type="Texture2D" uid="uid://1pue02yjr725" path="res://Textures/redghostAnim.png" id="6_ci45d"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e16ul"]
+atlas = ExtResource("2_e16ul")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wrvsf"]
+atlas = ExtResource("6_ci45d")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3sihx"]
+atlas = ExtResource("5_3sihx")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ci45d"]
+atlas = ExtResource("2_bfyxq")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ahwbw"]
+atlas = ExtResource("4_wrvsf")
+region = Rect2(0, 0, 128, 128)
+
+[node name="WaveEditorUi" type="Control" unique_id=619318123]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -739.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="." unique_id=2040480723]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 539.0
+grow_horizontal = 2
+
+[node name="Enemy_Item_List" type="ItemList" parent="GridContainer" unique_id=548002262]
+layout_mode = 2
+size_flags_horizontal = 3
+allow_reselect = true
+auto_height = true
+wraparound_items = false
+scroll_hint_mode = 1
+tile_scroll_hint = true
+item_count = 5
+max_columns = 3
+item_0/icon = SubResource("AtlasTexture_e16ul")
+item_1/icon = SubResource("AtlasTexture_wrvsf")
+item_2/icon = SubResource("AtlasTexture_3sihx")
+item_3/icon = SubResource("AtlasTexture_ci45d")
+item_4/icon = SubResource("AtlasTexture_ahwbw")
+
+[node name="MapButton" type="MenuButton" parent="GridContainer" unique_id=1656389733]
+layout_mode = 2
+text = "Map Name"
+flat = false
+
+[node name="AddNewLevelButton" type="Button" parent="GridContainer" unique_id=1906060465]
+layout_mode = 2
+text = "Add New Level"
+
+[node name="SaveButton" type="Button" parent="GridContainer" unique_id=1242881261]
+layout_mode = 2
+text = "Save Scene"
+
+[node name="ReloadButton" type="MenuButton" parent="GridContainer" unique_id=1919083447]
+layout_mode = 2
+text = "Reload Ui"
+flat = false
+item_count = 3
+popup/item_0/text = "asdasdas"
+popup/item_0/id = 0
+popup/item_1/text = "adasdadsda"
+popup/item_1/id = 1
+popup/item_2/text = "asdasdasda"
+popup/item_2/id = 2
+
+[node name="WaveSpinBox" type="SpinBox" parent="GridContainer" unique_id=1562833309]
+layout_mode = 2
+theme_override_constants/buttons_width = 50
+max_value = 1000.0
+value = 1.0
+alignment = 1
+prefix = "Wave"
+
+[node name="WaveButtons" type="GridContainer" parent="GridContainer" unique_id=2002394575]
+layout_mode = 2
+columns = 2
+
+[node name="AddButton" type="Button" parent="GridContainer/WaveButtons" unique_id=452427798]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Add Wave"
+
+[node name="DeleteButton" type="Button" parent="GridContainer/WaveButtons" unique_id=471031236]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Delete Wave"
+
+[node name="MapNamePopup" type="ConfirmationDialog" parent="." unique_id=1355990702]
+oversampling_override = 1.0
+title = "Name Of The Level"
+position = Vector2i(0, 36)
+
+[node name="LineEdit" type="LineEdit" parent="MapNamePopup" unique_id=125687370]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 192.0
+offset_bottom = 51.0

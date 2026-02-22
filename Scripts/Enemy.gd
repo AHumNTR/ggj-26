@@ -1,6 +1,6 @@
 extends CharacterBody3D
 class_name Enemy
-@export var player:CharacterBody3D
+@onready var player:CharacterBody3D= $/root/world/player#not the best but will do for now
 @onready var navagant:NavigationAgent3D=$NavigationAgent3D
 const MASK = preload("uid://f5scy1na7fgd")
 var target_pos:=Vector3.ZERO

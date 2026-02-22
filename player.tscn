@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bmqfdbicayqrx"]
 
-[ext_resource type="Script" uid="uid://bdnhiq4wmshev" path="res://player.gd" id="1_4flbx"]
+[ext_resource type="Script" uid="uid://bdnhiq4wmshev" path="res://Scripts/player.gd" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://chsy5bxpigubc" path="res://Scripts/GunController.gd" id="2_i3pqv"]
 [ext_resource type="PackedScene" uid="uid://cglxipv4hr2gn" path="res://Guns/DefaultGun.tscn" id="2_onrkg"]
 [ext_resource type="Texture2D" uid="uid://bsvf653lwvkok" path="res://Textures/item_UI_PNG.png" id="3_urp6f"]

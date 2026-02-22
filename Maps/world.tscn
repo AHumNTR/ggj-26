@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bmqfdbicayqrx" path="res://player.tscn" id="1_f3sb7"]
 [ext_resource type="Texture2D" uid="uid://cjs2bpgx5cpln" path="res://Textures/Smoke.png" id="3_dwbse"]
 [ext_resource type="Texture2D" uid="uid://bsvf653lwvkok" path="res://Textures/item_UI_PNG.png" id="3_k3n1d"]
-[ext_resource type="Script" uid="uid://caxlnol7dvrkd" path="res://globalui.gd" id="4_036b0"]
+[ext_resource type="Script" uid="uid://caxlnol7dvrkd" path="res://Global Scripts/globalui.gd" id="4_036b0"]
 [ext_resource type="PackedScene" uid="uid://dghfmmaacw68i" path="res://Enemies/enemy_spawner.tscn" id="4_aqk2v"]
 [ext_resource type="Material" uid="uid://2gws1vuos5pt" path="res://materials/wall.tres" id="4_dwbse"]
 [ext_resource type="PackedScene" uid="uid://ic6bxhdq5x0j" path="res://Enemies/enemy_basic.tscn" id="5_2o6r5"]

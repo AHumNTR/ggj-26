@@ -115,8 +115,7 @@ func handle_input():
 	hand.rotation = lerp(hand.rotation,Vector3.ZERO,0.4)
 	var key_input = Input.get_vector("left", "right", "forward", "backward")
 	wish_dir = (transform.basis * Vector3(key_input.x, 0, key_input.y)).normalized()
-	will_jump = Input.is_action_just_pressed("jump") and jumpsleft > 0
-
+	will_jump = Input.get_action_strength("jump") 
 
 func ground_movement(delta):
 	
@@ -227,7 +226,7 @@ func _physics_process(delta):
 		velocity.y -= gravity * delta
 		air_movement(delta)
 	
-	if will_jump:
+	if will_jump and jumpsleft > 0:
 		jumpsleft -= 1
 		velocity.y = JUMP_VELOCITY*jump_velocity_scale
 		jumpSound.play()

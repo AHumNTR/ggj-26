@@ -39,5 +39,5 @@ func _on_timer_timeout() -> void:
 	n.position = spawn_pos
 	n.player = player
 	n.speed += randfn(-1.0,1.0)
-	get_node("/root/world/enemies").add_child(n)
+	$"../enemies".add_child(n)
 	enemy_spawned_this_wave+=1
